@@ -20,8 +20,8 @@ const RONDJE = 1;
 const KRUISJE = -1;
 
 function preload() {
-	rondje = loadImage("assets/images/Rondje.png");
-	kruisje = loadImage("assets/images/Kruisje.png");
+	rondje = loadImage("images/Rondje.png");
+	kruisje = loadImage("images/Kruisje.png");
 }
 
 function setup() {
