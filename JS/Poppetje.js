@@ -35,8 +35,10 @@ function moveCharacter() {
     xCharacter = xCharacter + moveSpeed;
     return false;
   }*/
-  keyPressed(68) {
-    xCharacter = xCharacter + moveSpeed;
+ function keyPressed() {
+    if(keyCode = 68) {
+      xCharacter = xCharacter + moveSpeed;
+    }
     return false;
   }
   if(keyIsDown(65)) {
