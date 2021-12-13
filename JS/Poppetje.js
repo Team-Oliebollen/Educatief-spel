@@ -31,7 +31,11 @@ function moveCharacter() {
     moveSpeed = walkSpeed;
     return false;
   }
-  if(keyIsDown(68)) {
+/*  if(keyIsDown(68)) {
+    xCharacter = xCharacter + moveSpeed;
+    return false;
+  }*/
+  keyPressed(68) {
     xCharacter = xCharacter + moveSpeed;
     return false;
   }
