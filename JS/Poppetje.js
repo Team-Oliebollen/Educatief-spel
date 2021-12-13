@@ -16,7 +16,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  fill('magenta');
+  fill('yellow');
   ellipse(xCharacter, yCharacter, 50, 50);
 }
 
@@ -34,14 +34,11 @@ function moveCharacter() {
  function keyPressed() {
    if(keyCode === 68) {
      xCharacter = xCharacter + moveSpeed;
-   }
-   if(keyCode === 65) {
+   } else if(keyCode === 65) {
      xCharacter = xCharacter - moveSpeed;
-   }
-   if(keyCode === 83) {
+   } else if(keyCode === 83) {
      yCharacter = yCharacter + moveSpeed;
-   }
-   if(keyCode === 87) {
+   } else if(keyCode === 87) {
      yCharacter = yCharacter - moveSpeed;
   }
     return false;
