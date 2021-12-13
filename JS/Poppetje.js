@@ -43,4 +43,5 @@ function moveCharacter() {
   }
     return false;
   }
+  keyPressed();
 }
