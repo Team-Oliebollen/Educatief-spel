@@ -1,5 +1,4 @@
-Engels	Nederlands
-	
+Engels	Nederlands	
 Numbers	Getallen
 one	een
 two	twee
