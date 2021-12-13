@@ -1,1 +1,73 @@
-Nederlands,Engels;
+Engels	Nederlands
+	
+Numbers	Getallen
+one	een
+two	twee
+three	drie
+four	vier
+five	vijf
+six	zes
+seven	zeven
+eight	acht
+nine	negen
+ten	tien
+eleven	elf
+twelve	twaalf
+thirteen	dertien
+fourteen	veertien
+fifteen	vijftien
+sixteen	zestien
+seventeen	zeventien
+eighteen	achttien
+nineteen	negentien
+twenty	twintig
+thirty	dertig
+forty	veertig
+fifty	vijftig
+sixty	zestig
+seventy	zeventig
+eighty	tachtig
+ninety	negentig
+one hundred	honderd
+	
+Colours	Kleuren
+red	rood
+blue	blauw
+yellow	geel
+green	groen
+brown	bruin
+purple	paars
+orange	oranje
+black	zwart
+white	wit
+pink	roze
+grey	grijs
+	
+Animals	Dieren
+dog	hond
+bird	vogel
+snake	slang
+cat	kat
+lion	leeuw
+kangaroo	kangaroe
+whale	walvis
+panda	panda
+squirrel	eekhoorn
+bear	beer
+horse	paard
+cow	koe
+fox	vos
+monkey	aap
+duck	eend
+elephant	olifant
+sheep	schaap
+parrot	papegaai
+giraffe	giraf
+pig	varken
+deer	hert
+rhino	neushoorn
+frog	kikker
+zebra	zebra
+fish	vis
+	
+Food	Eten
