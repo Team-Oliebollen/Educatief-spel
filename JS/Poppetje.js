@@ -31,27 +31,19 @@ function moveCharacter() {
     moveSpeed = walkSpeed;
     return false;
   }
-/*  if(keyIsDown(68)) {
-    xCharacter = xCharacter + moveSpeed;
-    return false;
-  }*/
  function keyPressed() {
-    if(keyCode = 68) {
-      xCharacter = xCharacter + moveSpeed;
-    }
+   if(keyCode === 68) {
+     xCharacter = xCharacter + moveSpeed;
+   }
+   if(keyCode === 65) {
+     xCharacter = xCharacter - moveSpeed;
+   }
+   if(keyCode === 83) {
+     yCharacter = yCharacter + moveSpeed;
+   }
+   if(keyCode === 87) {
+     yCharacter = yCharacter - moveSpeed;
+  }
     return false;
   }
-  if(keyIsDown(65)) {
-    xCharacter = xCharacter - moveSpeed;
-    return false;
-  }
-  if(keyIsDown(83)) {
-    yCharacter = yCharacter + moveSpeed;
-    return false;
-  }
-  if(keyIsDown(87)) {
-    yCharacter = yCharacter - moveSpeed;
-    return false;
-  }
-  
 }
