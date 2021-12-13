@@ -31,6 +31,9 @@ function moveCharacter() {
     moveSpeed = walkSpeed;
     return false;
   }
+
+  keyPressed();
+}
  function keyPressed() {
    if(keyCode === 68) {
      xCharacter = xCharacter + moveSpeed;
@@ -43,5 +46,3 @@ function moveCharacter() {
   }
     return false;
   }
-  keyPressed();
-}
