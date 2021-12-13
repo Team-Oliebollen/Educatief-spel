@@ -16,7 +16,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  fill('blue');
+  fill('magenta');
   ellipse(xCharacter, yCharacter, 50, 50);
 }
 
