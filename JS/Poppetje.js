@@ -13,6 +13,7 @@ function setup() {
 function draw() {
   background(backGroundColour);
   moveCharacter();
+  drawCharacter();
 }
 function drawCharacter() {
   fill('blue');
