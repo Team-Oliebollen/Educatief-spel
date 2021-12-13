@@ -1,4 +1,5 @@
 let img;
+var usernameInput;
 
 function preload(){
   img = loadImage('apple-tfa-2.jpg');
@@ -12,5 +13,8 @@ function draw(){
   text("Answer:", 20, 20);
   usernameInput = createInput('Your answer', 'text');
   usernameInput.position(30, 40);
+  if (usernameInput == 'apple'){ //hier zit volgens mij de fout
+    text('correct', 20, 100);
+  }
 }
 // niet definitief.
