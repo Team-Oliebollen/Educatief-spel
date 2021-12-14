@@ -7,42 +7,45 @@ var walkSpeed = 4;
 var sprintSpeed = walkSpeed*1.5;
 var crouchSpeed = walkSpeed*0.5;
 var moveSpeed;
+var playerSprite;
+var backGround;
+
+function preload() {
+  playerSprite = loadImage('images/sprite-player.jpg')
+  backGround = loadImage('images/grasveld.jpg')
+}
 function setup() {
   createCanvas(gameWidth, gameHeight);
+ 
 }
 function draw() {
-  background(backGroundColour);
+  background(backGround);
   moveCharacter();
   drawCharacter();
 }
 function drawCharacter() {
-  fill('teal');
-  ellipse(xCharacter, yCharacter, 50, 50);
+  image(playerSprite, xCharacter, yCharacter, 50, 50);
 }
 
 function moveCharacter() {
-  if(keyIsDown(17)) {
+  if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
-    return false;
+
   } else if(keyIsDown(16)) {
     moveSpeed = crouchSpeed;
-    return false;
+
   } else {
     moveSpeed = walkSpeed;
-    return false;
+
   }
-   function keyPressed() {
-   if(keyCode === 68) {
-     xCharacter = xCharacter + moveSpeed;
-   } else if(keyCode === 65) {
+  if(keyIsDown(68)) {
+    xCharacter = xCharacter + moveSpeed;
+  } else if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
-   } else if(keyCode === 83) {
-     yCharacter = yCharacter + moveSpeed;
-   } else if(keyCode === 87) {
-     yCharacter = yCharacter - moveSpeed;
+  } else if(keyIsDown(83)) {
+    yCharacter = yCharacter + moveSpeed;
+  } else if(keyIsDown(87)) {
+    yCharacter = yCharacter - moveSpeed;
   }
-    return false;
-  }
-  //keyPressed();
 }
 
