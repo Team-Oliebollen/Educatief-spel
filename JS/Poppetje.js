@@ -50,7 +50,7 @@ function moveCharacter() {
   if(keyIsDown(87)) {
     yCharacter = yCharacter - moveSpeed;
   }
-  xCharacter = constrain(xCharacter, 0, gameWidth);
-  yCharacter = constrain(yCharacter, 0, gameHeight);
+  xCharacter = constrain(xCharacter, 0, gameWidth - playerSprite.width);
+  yCharacter = constrain(yCharacter, 0, gameHeight - playerSprite.height);
 }
 
