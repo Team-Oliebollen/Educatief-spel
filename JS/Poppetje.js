@@ -3,9 +3,9 @@ var gameHeight = screen.height - 300;
 var backGroundColour = 'black';
 var xCharacter = gameWidth*0.5;
 var yCharacter = gameHeight*0.5;
-var walkSpeed = 4;
-var sprintSpeed = walkSpeed*1.5;
-var crouchSpeed = walkSpeed*0.5;
+var walkSpeed = 6;
+var sprintSpeed = walkSpeed*2;
+var crouchSpeed = walkSpeed*0.3;
 var moveSpeed;
 var playerSprite;
 var backGround;
@@ -24,7 +24,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  image(playerSprite, xCharacter, yCharacter, 75, 75);
+  image(playerSprite, xCharacter, yCharacter, 25, 25);
 }
 
 function moveCharacter() {
