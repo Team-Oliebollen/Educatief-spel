@@ -12,7 +12,7 @@ var backGround;
 
 function preload() {
   playerSprite = loadImage('../JS/images/sprite-player.jpg')
-  backGround = loadImage('/images/grasveld.jpg')
+  backGround = loadImage('../JS/images/grasveld.jpg')
 }
 function setup() {
   createCanvas(gameWidth, gameHeight);
