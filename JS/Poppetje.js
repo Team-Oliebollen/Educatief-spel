@@ -24,7 +24,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  image(playerSprite, xCharacter, yCharacter, 50, 50);
+  image(playerSprite, xCharacter, yCharacter, 75, 75);
 }
 
 function moveCharacter() {
@@ -40,12 +40,17 @@ function moveCharacter() {
   }
   if(keyIsDown(68)) {
     xCharacter = xCharacter + moveSpeed;
-  } else if(keyIsDown(65)) {
+  } 
+  if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
-  } else if(keyIsDown(83)) {
+  }
+  if(keyIsDown(83)) {
     yCharacter = yCharacter + moveSpeed;
-  } else if(keyIsDown(87)) {
+  }
+  if(keyIsDown(87)) {
     yCharacter = yCharacter - moveSpeed;
   }
+  xCharacter = constrain(xCharacter, 0, gameWidth);
+  yCharacter = constrain(yCharacter, 0, gameHeight);
 }
 
