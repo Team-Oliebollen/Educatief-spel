@@ -8,6 +8,7 @@ var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
 var moveSpeed;
 var playerSprite;
+var playerSize = 25;
 var backGround;
 
 function preload() {
@@ -24,7 +25,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  image(playerSprite, xCharacter, yCharacter, 25, 25);
+  image(playerSprite, xCharacter, yCharacter, playerSize, playerSize);
 }
 
 function moveCharacter() {
@@ -50,7 +51,7 @@ function moveCharacter() {
   if(keyIsDown(87)) {
     yCharacter = yCharacter - moveSpeed;
   }
-  xCharacter = constrain(xCharacter, 0, gameWidth - playerSprite.width);
-  yCharacter = constrain(yCharacter, 0, gameHeight - playerSprite.height);
+  xCharacter = constrain(xCharacter, 0, gameWidth - playerSize);
+  yCharacter = constrain(yCharacter, 0, gameHeight - playerSize);
 }
 
