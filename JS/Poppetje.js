@@ -46,6 +46,7 @@ function moveCharacter() {
   if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
   }
+  if(keyIsDown(87) && yCharacter == gameHeight)
   /*if(keyIsDown(83)) {
     yCharacter = yCharacter + moveSpeed;
   }
