@@ -8,10 +8,10 @@ var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
 var moveSpeed;
 var playerSprite;
-var playerSize = 25;
+var playerSize = 75;
 var backGround;
 var gravity = 10;
-var ySpeed;
+var ySpeed = 0;
 function preload() {
   playerSprite = loadImage('../JS/images/sprite-player.jpg')
   backGround = loadImage('../JS/images/grasveld.jpg')
