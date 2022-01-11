@@ -10,7 +10,8 @@ var moveSpeed;
 var playerSprite;
 var playerSize = 25;
 var backGround;
-
+var gravity = 10;
+var ySpeed;
 function preload() {
   playerSprite = loadImage('../JS/images/sprite-player.jpg')
   backGround = loadImage('../JS/images/grasveld.jpg')
@@ -45,11 +46,17 @@ function moveCharacter() {
   if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
   }
-  if(keyIsDown(83)) {
+  /*if(keyIsDown(83)) {
     yCharacter = yCharacter + moveSpeed;
   }
   if(keyIsDown(87)) {
     yCharacter = yCharacter - moveSpeed;
+  }*/
+  if(yCharacter > gameHeight) {
+    ySpeed = ySpeed + gravity;
+    yCharacter = yCharacter + ySpeed;
+  } else if(yCharacter == gameHeight) {
+    ySpeed = 0;
   }
   xCharacter = constrain(xCharacter, 0, gameWidth - playerSize);
   yCharacter = constrain(yCharacter, 0, gameHeight - playerSize);
