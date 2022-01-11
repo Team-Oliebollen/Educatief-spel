@@ -52,7 +52,7 @@ function moveCharacter() {
   if(keyIsDown(87)) {
     yCharacter = yCharacter - moveSpeed;
   }*/
-  if(yCharacter > gameHeight) {
+  if(yCharacter < gameHeight) {
     ySpeed = ySpeed + gravity;
     yCharacter = yCharacter + ySpeed;
   } else if(yCharacter == gameHeight) {
