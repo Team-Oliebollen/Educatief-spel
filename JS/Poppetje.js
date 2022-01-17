@@ -56,9 +56,9 @@ function moveCharacter() {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
-  if(xCharacter = -playerSize) {
+  if(xCharacter == -playerSize) {
     xCharacter = gameWidth + playerSize;
-  } else if(xCharacter = playerSize + gameWidth) {
+  } else if(xCharacter == playerSize + gameWidth) {
     xCharacter = -playerSize;
   }
  // xCharacter = constrain(xCharacter, 0 - playerSize, gameWidth);
