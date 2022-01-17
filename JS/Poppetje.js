@@ -1,5 +1,5 @@
-var gameWidth = screen.width*0.65;
-var gameHeight = screen.height*0.65;
+var gameWidth = screen.width*0.8;
+var gameHeight = screen.height*0.8;
 var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
