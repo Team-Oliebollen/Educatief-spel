@@ -21,7 +21,7 @@ var jumpForce = 15;
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = loadImage('../JS/images/grasveld.jpg');
-  obstacle1 = loadImage('../JS/images/rots.jpg');
+  obstacle1 = loadImage('../JS/images/rots.jpg.jpg');
 }
 function setup() {
   createCanvas(gameWidth, gameHeight);
