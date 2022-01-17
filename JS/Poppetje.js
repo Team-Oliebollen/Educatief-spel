@@ -6,7 +6,7 @@ var backGroundColour = 'black';
 var xCharacter = 0;
 var yCharacter = gameHeight - playerSize;
 var xObstacles = [1000];
-var yObstacles = [gameHeight];
+var yObstacles = [0];
 var obsWidth = [500];
 var obsHeight = [100];
 var walkSpeed = 10;
@@ -39,7 +39,7 @@ function drawCharacter() {
 }
 function drawObstacles() {
   for(i = 0; i <= xObstacles.length; i++) {
-    image(obstacle1, xObstacles[i], yObstacles[i], obsWidth[i], obsHeight[i]);
+    image(obstacle1, xObstacles[i], gameHeight - yObstacles[i], obsWidth[i], obsHeight[i]);
   }
 }
 function checkObstacles() {
