@@ -14,7 +14,7 @@ var gravity = 2.5;
 var ySpeed = 0;
 var jumpForce = 5;
 function preload() {
-  playerSprite = loadImage('../JS/images/MC-apple.png')
+  playerSprite = loadImage('../JS/images/MC_apple.png')
   backGround = loadImage('../JS/images/grasveld.jpg')
 }
 function setup() {
