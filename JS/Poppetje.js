@@ -59,7 +59,7 @@ function moveCharacter() {
   } else if(yCharacter == gameHeight) {
     ySpeed = 0;
   }
-  if(true && yCharacter == gameHeight) {
+  if(yCharacter == gameHeight) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
