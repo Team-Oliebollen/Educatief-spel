@@ -1,8 +1,8 @@
 var gameWidth = screen.width*0.65;
 var gameHeight = screen.height*0.65;
 var backGroundColour = 'black';
-var xCharacter = gameWidth*0.5;
-var yCharacter = gameHeight*0.5;
+var xCharacter = 0;
+var yCharacter = gameHeight - playerSize;
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
