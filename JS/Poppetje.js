@@ -10,7 +10,7 @@ var moveSpeed;
 var playerSprite;
 var playerSize = 75;
 var backGround;
-var gravity = 1;
+var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 7.5;
 function preload() {
@@ -47,19 +47,12 @@ function moveCharacter() {
   if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
   }
- // if(keyIsDown(87) && yCharacter == gameHeight)
-  /*if(keyIsDown(83)) {
-    yCharacter = yCharacter + moveSpeed;
-  }
-  if(keyIsDown(87)) {
-    yCharacter = yCharacter - moveSpeed;
-  }*/
   if(yCharacter < gameHeight) {
     ySpeed = ySpeed + gravity;
   } else if(yCharacter == gameHeight) {
     ySpeed = 0;
   }
-  if(yCharacter == gameHeight - playerSize) {
+  if(keyIsDown(87) && yCharacter == gameHeight - playerSize) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
