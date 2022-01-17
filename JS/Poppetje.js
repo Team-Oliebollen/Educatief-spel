@@ -1,9 +1,14 @@
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
+var floorHeight;
 var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
 var yCharacter = gameHeight - playerSize;
+var xObstacles = [1000];
+var yObstacles = [0];
+var obsWidth = [500];
+var obsHeight = [100];
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
@@ -14,8 +19,9 @@ var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 15;
 function preload() {
-  playerSprite = loadImage('../JS/images/MC_apple.png')
-  backGround = loadImage('../JS/images/grasveld.jpg')
+  playerSprite = loadImage('../JS/images/MC_apple.png');
+  backGround = loadImage('../JS/images/grasveld.jpg');
+  obstacle1 = loadImage('../JS/images/rots.jpg');
 }
 function setup() {
   createCanvas(gameWidth, gameHeight);
@@ -23,13 +29,26 @@ function setup() {
 }
 function draw() {
   background(backGround);
+  drawObstacles();
+  checkObstacles();
   moveCharacter();
   drawCharacter();
 }
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter, playerSize, playerSize);
 }
-
+function drawObstacles() {
+  for(i = 0; i <= xObstacles.length; i++) {
+    image(obstacle1, xObstacles[i], yObstacles[i], obsWidth[i], obsHeight[i]);
+  }
+}
+function checkObstacles() {
+  for(i = 0; i <= xObstacles.length; i++) { 
+    if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i]) {
+      floorHeight = xObstacles [i] + obsHeight[i];
+    }
+  }
+}
 function moveCharacter() {
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
@@ -47,12 +66,12 @@ function moveCharacter() {
   if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
   }
-  if(yCharacter < gameHeight) {
+  if(yCharacter < floorHeight) {
     ySpeed = ySpeed + gravity;
-  } else if(yCharacter == gameHeight) {
+  } else if(yCharacter == floorHeight) {
     ySpeed = 0;
   }
-  if(keyIsDown(87) && yCharacter == gameHeight - playerSize) {
+  if(keyIsDown(87) && yCharacter == floorHeight - playerSize) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
@@ -61,7 +80,6 @@ function moveCharacter() {
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
   }
- // xCharacter = constrain(xCharacter, 0 - playerSize, gameWidth);
-  yCharacter = constrain(yCharacter, 0, gameHeight - playerSize);
+  yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
 
