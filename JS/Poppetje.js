@@ -39,7 +39,7 @@ function drawCharacter() {
 }
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
-    image(obstacle1, xObstacles[i], gameHeight - yObstacles[i], obsWidth[i], obsHeight[i]);
+    image(obstacle1, xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
   }
 }
 function checkObstacles() {
