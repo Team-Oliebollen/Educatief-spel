@@ -4,7 +4,7 @@ var floorHeight;
 var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
-var yCharacter = gameHeight - playerSize;
+var yCharacter = gameHeight - playerSize + 100;
 var xObstacles = [1000];
 var yObstacles = [0];
 var obsWidth = [500];
@@ -45,7 +45,9 @@ function drawObstacles() {
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i]) {
-      floorHeight = yObstacles[i] + obsHeight[i];
+      floorHeight = yObstacles[i]/* + obsHeight[i]*/;
+    } else {
+      floorHeight = 100;
     }
   }
 }
