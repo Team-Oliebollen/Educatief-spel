@@ -38,12 +38,12 @@ function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter, playerSize, playerSize);
 }
 function drawObstacles() {
-  for(i = 0; i <= xObstacles.length; i++) {
+  for(i = 0; i < xObstacles.length; i++) {
     image(obstacle1, xObstacles[i], gameHeight - yObstacles[i], obsWidth[i], obsHeight[i]);
   }
 }
 function checkObstacles() {
-  for(i = 0; i <= xObstacles.length; i++) { 
+  for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i]) {
       floorHeight = xObstacles [i] + obsHeight[i];
     }
