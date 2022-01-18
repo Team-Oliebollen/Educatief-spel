@@ -50,9 +50,6 @@ function checkObstacles() {
   }
 }
 function moveCharacter() {
-  /*if(yCharacter == NaN) {
-    yCharacter = gameHeight - playerSize;
-  }*/
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
 
@@ -74,7 +71,7 @@ function moveCharacter() {
   } else if(yCharacter == floorHeight) {
     ySpeed = 0;
   }
-  if(keyIsDown(87) && yCharacter == floorHeight - playerSize) {
+  if(*/keyIsDown(87) && */yCharacter == floorHeight - playerSize) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
