@@ -4,7 +4,7 @@ var floorHeight;
 var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
-var yCharacter = gameHeight - playerSize + 100;
+var yCharacter = gameHeight - playerSize + 500;
 var xObstacles = [1000];
 var yObstacles = [100];
 var obsWidth = [500];
