@@ -78,7 +78,7 @@ function moveCharacter() {
     ySpeed = ySpeed + gravity;
   } else if(yCharacter >= floorHeight) {
     ySpeed = 0;
-    yCharacter = floorHeight;
+    //yCharacter = floorHeight;
   }
   if(keyIsDown(87) && yCharacter == floorHeight) {
     ySpeed = -jumpForce;
