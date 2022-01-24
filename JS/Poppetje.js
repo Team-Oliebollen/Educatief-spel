@@ -89,6 +89,9 @@ function moveCharacter() {
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
   }
+  if(yCharacter > gameHeight) {
+    yCharacter = floorHeight;
+  }
   //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
 
