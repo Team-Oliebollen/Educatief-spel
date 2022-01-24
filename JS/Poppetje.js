@@ -80,7 +80,7 @@ function moveCharacter() {
     ySpeed = 0;
     //yCharacter = floorHeight;
   }
-  if(keyIsDown(87) && yCharacter == floorHeight) {
+  if(keyIsDown(87) && yCharacter <= floorHeight) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
@@ -89,7 +89,7 @@ function moveCharacter() {
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
   }
-  if(yCharacter > gameHeight) {
+  if(yCharacter > floorHeight) {
     yCharacter = floorHeight;
   }
   //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
