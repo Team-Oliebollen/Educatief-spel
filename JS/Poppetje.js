@@ -45,7 +45,7 @@ function drawObstacles() {
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i]) {
-      floorHeight = yObstacles[i]
+      floorHeight = gameHeight - yObstacles[i]
     } else {
       floorHeight = gameHeight - 100;
     }
