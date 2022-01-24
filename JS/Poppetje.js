@@ -45,7 +45,7 @@ function drawObstacles() {
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i]) {
-      floorHeight = yObstacles[i]/* + obsHeight[i]*/;
+      floorHeight = yObstacles[i]
     } else {
       floorHeight = 100;
     }
@@ -82,6 +82,6 @@ function moveCharacter() {
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
   }
-  //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
+  yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
 
