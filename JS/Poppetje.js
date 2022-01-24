@@ -35,7 +35,7 @@ function draw() {
   drawCharacter();
 }
 function drawCharacter() {
-  image(playerSprite, xCharacter, yCharacter - playersize, playerSize, playerSize);
+  image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
 }
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
