@@ -9,6 +9,7 @@ var xObstacles = [1000];
 var yObstacles = [100];
 var obsWidth = [500];
 var obsHeight = [100];
+var obsCollision = [true]
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
@@ -48,6 +49,11 @@ function checkObstacles() {
       floorHeight = gameHeight - yObstacles[i] - obsHeight[i]
     } else {
       floorHeight = gameHeight - 100;
+    }
+    if(xCharacter >= xObstacles[i] - playerSize && yCharacter >= gameHeight - yObstacles[i] && yCharacter <= gameHeight - yObstacles[i]) {
+      xCharacter = constrain(xCharacter, 0, xObstacles[i] - playerSize);
+    } else if(xCharacter <= xObstacles[i] + obsWidth[i] && yCharacter >= gameHeight - yObstacles[i] && yCharacter <= gameHeight - yObstacles[i]) {
+      xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000);
     }
   }
 }
