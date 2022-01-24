@@ -74,7 +74,7 @@ function moveCharacter() {
     ySpeed = 0;
     yCharacter = floorHeight;
   }
-  if(keyIsDown(87) && yCharacter == floorHeight - playerSize) {
+  if(/*keyIsDown(87) && */yCharacter == floorHeight - playerSize) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
