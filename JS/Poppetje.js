@@ -70,10 +70,11 @@ function moveCharacter() {
   }
   if(yCharacter < floorHeight) {
     ySpeed = ySpeed + gravity;
-  } else if(yCharacter == floorHeight) {
+  } else if(yCharacter >= floorHeight) {
     ySpeed = 0;
+    yCharacter = floorHeight;
   }
-  if(/*keyIsDown(87) && */yCharacter == floorHeight - playerSize) {
+  if(keyIsDown(87) && yCharacter == floorHeight - playerSize) {
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
@@ -82,6 +83,6 @@ function moveCharacter() {
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
   }
-  yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
+  //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
 
