@@ -6,7 +6,7 @@ var backGroundColour = 'black';
 var xCharacter = 0;
 var yCharacter = gameHeight - playerSize + 500;
 var xObstacles = [1000, 20];
-var yObstacles = [100, 135];
+var yObstacles = [100, 200];
 var obsWidth = [500, 250];
 var obsHeight = [100, 50];
 var obsCollision = [true, true]
@@ -51,7 +51,7 @@ function drawObstacles() {
 
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
-    if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i] && yCharacter <= gameHeight - yObstacles[i]) {
+    if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i] + playerSize && yCharacter <= gameHeight - yObstacles[i]) {
       topFloor[i] = true;
     } else {
       topFloor[i] = false;
