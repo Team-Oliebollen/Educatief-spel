@@ -27,10 +27,12 @@ function preload() {
   obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg')]
 }
 
+//this is the setup of the game
 function setup() {
   createCanvas(gameWidth, gameHeight);
 }
 
+//
 function draw() {
   background(backGround);
   drawObstacles();
