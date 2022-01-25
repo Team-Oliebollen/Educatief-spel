@@ -66,21 +66,21 @@ function checkObstacles() {
     }
     if(xCharacter >= xObstacles[i] - playerSize * 1.3 && 
        xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
-       yCharacter >= gameHeight - yObstacles[i] && 
-       yCharacter <= gameHeight - yObstacles[i] + obsHeight[i] && 
+       yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize && 
+       yCharacter <= gameHeight - yObstacles[i] + playerSize && 
        obsCollision[i] == true) {
-      xCharacter = constrain(xCharacter, 0, xObstacles[i] - playerSize);
+      xCharacter = constrain(xCharacter, -10000, xObstacles[i] - playerSize);
     } else if(xCharacter <= xObstacles[i] + obsWidth[i] + playerSize && 
               xCharacter > xCharacter + obsWidth[i] * 0.51 && 
-              yCharacter >= gameHeight - yObstacles[i] && 
-              yCharacter <= gameHeight - yObstacles[i] + obsHeight[i] && 
+              yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize && 
+              yCharacter <= gameHeight - yObstacles[i] + playerSize && 
               obsCollision[i] == true) {
       xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000);
     }
   }
 }
 
-// this is how you can move the apple-character
+// this is how you can move the apple character
 function moveCharacter() {
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
