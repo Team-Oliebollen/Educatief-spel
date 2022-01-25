@@ -20,15 +20,17 @@ var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 15;
 var topFloor = [];
+
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = loadImage('../JS/images/background.png');
   obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg')]
 }
+
 function setup() {
   createCanvas(gameWidth, gameHeight);
- 
 }
+
 function draw() {
   background(backGround);
   drawObstacles();
@@ -36,14 +38,17 @@ function draw() {
   moveCharacter();
   drawCharacter();
 }
+
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
 }
+
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
     image(obstacle[i], xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
   }
 }
+
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i] && yCharacter <= gameHeight - yObstacles[i]) {
@@ -63,17 +68,16 @@ function checkObstacles() {
     floorHeight = gameHeight - 100;
   }
 }
+
 function moveCharacter() {
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
-
   } else if(keyIsDown(16)) {
     moveSpeed = crouchSpeed;
-
   } else {
     moveSpeed = walkSpeed;
-
   }
+  
   if(keyIsDown(68)) {
     xCharacter = xCharacter + moveSpeed;
   } 
@@ -100,6 +104,6 @@ function moveCharacter() {
   } else  if(yCharacter > floorHeight + 300) {
     yCharacter = floorHeight;
   }
-  //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
+  yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
 
