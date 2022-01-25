@@ -5,11 +5,11 @@ var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
 var yCharacter = gameHeight - playerSize + 500;
-var xObstacles = [1000];
-var yObstacles = [100];
-var obsWidth = [500];
-var obsHeight = [100];
-var obsCollision = [true]
+var xObstacles = [1000, 20];
+var yObstacles = [100, 500];
+var obsWidth = [500, 250];
+var obsHeight = [100, 50];
+var obsCollision = [true, false]
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
@@ -21,8 +21,8 @@ var ySpeed = 0;
 var jumpForce = 15;
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
-  backGround = loadImage('../JS/images/grasveld.jpg');
-  obstacle1 = loadImage('../JS/images/rots.jpg.jpg');
+  backGround = loadImage('../JS/images/background.png');
+  obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg')]
 }
 function setup() {
   createCanvas(gameWidth, gameHeight);
@@ -40,7 +40,7 @@ function drawCharacter() {
 }
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
-    image(obstacle1, xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
+    image(obstacle[i], xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
   }
 }
 function checkObstacles() {
