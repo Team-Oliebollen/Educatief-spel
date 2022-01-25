@@ -55,15 +55,26 @@ function drawObstacles() {
 
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
-    if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter >= xObstacles[i] - playerSize && yCharacter > yObstacles[i] + obsHeight[i] + playerSize && yCharacter <= gameHeight - yObstacles[i]) {
+    if(xCharacter <= xObstacles[i] + obsWidth[i] && 
+       xCharacter >= xObstacles[i] - playerSize && 
+       yCharacter > yObstacles[i] + obsHeight[i] + playerSize && 
+       yCharacter <= gameHeight - yObstacles[i]) {
       floorHeight = gameHeight - yObstacles[i] - obsHeight[i];
       i = xObstacles.length;
     } else {
       floorHeight = gameHeight - 100;
     }
-    if(xCharacter >= xObstacles[i] - playerSize && xCharacter < xObstacles[i] + obsWidth[i]*0.5 && yCharacter >= gameHeight - yObstacles[i] && yCharacter <= gameHeight - yObstacles[i] && obsCollision[i] == true) {
+    if(xCharacter >= xObstacles[i] - playerSize * 1.3 && 
+       xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
+       yCharacter >= gameHeight - yObstacles[i] && 
+       yCharacter <= gameHeight - yObstacles[i] + obsHeight[i] && 
+       obsCollision[i] == true) {
       xCharacter = constrain(xCharacter, 0, xObstacles[i] - playerSize);
-    } else if(xCharacter <= xObstacles[i] + obsWidth[i] && xCharacter > xCharacter + obsWidth[i]*0.6 && yCharacter >= gameHeight - yObstacles[i] && yCharacter <= gameHeight - yObstacles[i] - obsHeight[i] && obsCollision[i] == true) {
+    } else if(xCharacter <= xObstacles[i] + obsWidth[i] + playerSize && 
+              xCharacter > xCharacter + obsWidth[i] * 0.51 && 
+              yCharacter >= gameHeight - yObstacles[i] && 
+              yCharacter <= gameHeight - yObstacles[i] + obsHeight[i] && 
+              obsCollision[i] == true) {
       xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000);
     }
   }
