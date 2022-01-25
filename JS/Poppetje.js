@@ -27,12 +27,12 @@ function preload() {
   obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg')]
 }
 
-//this is the setup of the game
+// this creates the measures of the game
 function setup() {
   createCanvas(gameWidth, gameHeight);
 }
 
-//this code draws the background, obstacles and characters
+// the code will draw all the background images
 function draw() {
   background(backGround);
   drawObstacles();
@@ -41,9 +41,11 @@ function draw() {
   drawCharacter();
 }
 
+// this code draws the apple-character
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
 }
+
 
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
@@ -71,6 +73,7 @@ function checkObstacles() {
   }
 }
 
+// this is how you can move the apple-character
 function moveCharacter() {
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
