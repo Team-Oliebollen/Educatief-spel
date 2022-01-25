@@ -32,7 +32,7 @@ function setup() {
   createCanvas(gameWidth, gameHeight);
 }
 
-//
+//this code draws the background, obstacles and characters
 function draw() {
   background(backGround);
   drawObstacles();
