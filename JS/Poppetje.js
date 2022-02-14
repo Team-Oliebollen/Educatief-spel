@@ -5,11 +5,11 @@ var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 0;
 var yCharacter = gameHeight - playerSize + 500;
-var xObstacles = [1000, 20, 400];
-var yObstacles = [100, 200, 300];
-var obsWidth = [500, 250, 200];
-var obsHeight = [100, 100, 150];
-var obsCollision = [true, true, false]
+var xObstacles = [1000, 20, 400, 600];
+var yObstacles = [100, 200, 300, 500];
+var obsWidth = [500, 250, 200, 300];
+var obsHeight = [100, 100, 150, 150];
+var obsCollision = [true, true, false, true]
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
@@ -24,7 +24,7 @@ var topFloor;
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = loadImage('../JS/images/background.png');
-  obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg')]
+  obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg')]
 }
 
 // this creates the measures of the game
