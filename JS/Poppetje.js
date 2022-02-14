@@ -66,7 +66,7 @@ function checkObstacles() {
     }
     if(xCharacter >= xObstacles[i] - playerSize * 1.3 && 
        xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
-       yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize && 
+       yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize - 10 && 
        yCharacter <= gameHeight - yObstacles[i] + playerSize && 
        obsCollision[i] == true) {
       xCharacter = constrain(xCharacter, -10000, xObstacles[i] - playerSize);
