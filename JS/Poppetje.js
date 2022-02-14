@@ -58,12 +58,14 @@ function checkObstacles() {
     if(xCharacter <= xObstacles[i] + obsWidth[i] && 
        xCharacter >= xObstacles[i] - playerSize && 
        yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize - 50 && 
-       yCharacter <= gameHeight - yObstacles[i] /*- obsHeight[i]*/) {
+       yCharacter <= gameHeight - yObstacles[i]) {
       floorHeight = gameHeight - yObstacles[i] - obsHeight[i];
       i = xObstacles.length;
     } else {
       floorHeight = gameHeight - 100;
     }
+  }
+  for(i = 0; i < xObstacles.length; i++) {
     if(xCharacter >= xObstacles[i] - playerSize * 1.3 && 
        xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
        yCharacter >= gameHeight - yObstacles[i] /*+ obsHeight[i]*/ - playerSize + 10 && 
