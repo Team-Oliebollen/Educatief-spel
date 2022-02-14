@@ -1,3 +1,4 @@
+/*
 let img;
 
 function preload(){
@@ -13,4 +14,4 @@ function draw(){
   usernameInput = createInput('Your answer', 'text');
   usernameInput.position(30, 40);
 }
-// niet definitief.
+*/
