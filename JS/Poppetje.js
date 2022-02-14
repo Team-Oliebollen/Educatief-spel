@@ -24,7 +24,7 @@ var topFloor;
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = loadImage('../JS/images/background.png');
-  obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg')]
+  obstacle = [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg')]
 }
 
 // this creates the measures of the game
