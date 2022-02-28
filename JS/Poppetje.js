@@ -49,7 +49,7 @@ var topFloor;
 
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
-  backGround = [loadImage('../JS/images/background.png');]
+  backGround = [loadImage('../JS/images/background.png'), loadImage('../JS/images/background.png')]
   obstacle = [
     [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg')],
     [],
@@ -65,7 +65,7 @@ function setup() {
 
 // the code will draw all the background images
 function draw() {
-  background(backGround);
+  background(backGround[level]);
   drawObstacles();
   checkObstacles();
   moveCharacter();
