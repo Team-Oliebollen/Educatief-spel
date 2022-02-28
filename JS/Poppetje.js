@@ -7,31 +7,31 @@ var backGroundColour = 'black';
 var xCharacter = 200;
 var yCharacter = gameHeight - 200;
 var xObstacles = [
-  [-100, 50, 1500],
+  [],
   [],
   [],
   []
 ];
 var yObstacles = [
-  [0, 800, 200],
+  [],
   [],
   [],
   []
 ];
 var obsWidth = [
-  [150, 2000, 150],
+  [],
   [],
   [],
   []
 ];
 var obsHeight = [
-  [2000, 150, 600],
+  [],
   [],
   [],
   []
 ];
 var obsCollision = [
-  [true, true, true],
+  [],
   [],
   [],
   []
@@ -46,7 +46,54 @@ var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 15;
 var topFloor;
-
+var levelComplete = [
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+]
+var xEnemy = [
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500
+]
+var yEnemy = [
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500,
+  500
+]
+var enemySize = [
+  100,
+  100,
+  100,
+  100,
+  100,
+  100,
+  100,
+  100,
+  100,
+  100
+]
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), loadImage('../JS/images/background.png')]
@@ -55,6 +102,18 @@ function preload() {
     [],
     [],
     []
+  ]
+  enemy = [
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_fries.png'),
+    loadImage('../JS/images/EV_candy_cane.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png'),
+    loadImage('../JS/images/EV_pizza.png')
   ]
 }
 
@@ -70,8 +129,14 @@ function draw() {
   checkObstacles();
   moveCharacter();
   drawCharacter();
+  drawEnemy();
 }
 
+function drawEnemy() {
+  if (levelComplete[level] = false) {
+    image(enemy[level], xEnemy[level], gameheight - yEnemy[level], enemySize[level, enemySize[level]);
+  }
+}
 // this code draws the apple-character
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
