@@ -4,8 +4,8 @@ var gameHeight = screen.height*0.8;
 var floorHeight;
 var playerSize = 75;
 var backGroundColour = 'black';
-var xCharacter = 100;
-var yCharacter = gameHeight - playerSize - 200;
+var xCharacter = 200;
+var yCharacter = gameHeight - 200;
 var xObstacles = [
   [-50, -50, 1500],
   [],
