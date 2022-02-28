@@ -5,7 +5,7 @@ var floorHeight;
 var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 100;
-var yCharacter = gameHeight - playerSize + 500;
+var yCharacter = gameHeight - playerSize - 200;
 var xObstacles = [
   [-50, -50, 1500],
   [],
@@ -13,7 +13,7 @@ var xObstacles = [
   []
 ];
 var yObstacles = [
-  [0, 800, 100],
+  [0, 800, 200],
   [],
   [],
   []
