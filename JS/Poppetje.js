@@ -135,7 +135,7 @@ function draw() {
 
 function drawEnemy() {
   if (levelComplete[level] = false) {
-    image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level, enemySize[level]);
+    image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level, enemySize[level];
   }
 }
 // this code draws the apple-character
