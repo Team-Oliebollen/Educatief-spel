@@ -7,7 +7,7 @@ var backGroundColour = 'black';
 var xCharacter = 200;
 var yCharacter = gameHeight - 200;
 var xObstacles = [
-  [-100, -50, 1500],
+  [-100, 50, 1500],
   [],
   [],
   []
@@ -25,7 +25,7 @@ var obsWidth = [
   []
 ];
 var obsHeight = [
-  [2000, 150, 1500],
+  [2000, 150, 650],
   [],
   [],
   []
