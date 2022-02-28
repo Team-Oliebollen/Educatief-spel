@@ -80,7 +80,7 @@ function drawCharacter() {
 
 function drawObstacles() {
   for(i = 0; i < xObstacles[level].length; i++) {
-    image(obstacle[level][i], xObstacles[level][i], gameHeight - yObstacle[level][i] - obsHeight[level][i], obsWidth[level][i], obsHeight[level][i]);
+    image(obstacle[level][i], xObstacles[level][i], gameHeight - yObstacles[level][i] - obsHeight[level][i], obsWidth[level][i], obsHeight[level][i]);
   }
 }
 
