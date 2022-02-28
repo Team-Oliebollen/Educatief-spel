@@ -134,7 +134,7 @@ function draw() {
 }
 
 function drawEnemy() {
-  if (levelComplete[level] = false) {
+  if (levelComplete[level] == false) {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level, enemySize[level]);
   }
 }
