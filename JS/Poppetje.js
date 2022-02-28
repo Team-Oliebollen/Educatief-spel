@@ -7,31 +7,31 @@ var backGroundColour = 'black';
 var xCharacter = 100;
 var yCharacter = gameHeight - playerSize + 500;
 var xObstacles = [
-  [1000, 20, 400, 600, -50, -50, 1500],
+  [-50, -50, 1500],
   [],
   [],
   []
 ];
 var yObstacles = [
-  [100, 200, 300, 500, 0, 700, 100],
+  [0, 800, 100],
   [],
   [],
   []
 ];
 var obsWidth = [
-  [500, 250, 200, 300, 150, 2000, 150],
+  [150, 2000, 150],
   [],
   [],
   []
 ];
 var obsHeight = [
-  [100, 100, 150, 150, 2000, 150, 1500],
+  [2000, 150, 1500],
   [],
   [],
   []
 ];
 var obsCollision = [
-  [true, true, false, true, true, true, true],
+  [true, true, true],
   [],
   [],
   []
@@ -51,7 +51,7 @@ function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), loadImage('../JS/images/background.png')]
   obstacle = [
-    [loadImage('../JS/images/rots.jpg.jpg'),loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/rots.jpg.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
+    [loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
     [],
     [],
     []
