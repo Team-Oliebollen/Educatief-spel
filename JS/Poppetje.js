@@ -6,6 +6,7 @@ var playerSize = 75;
 var backGroundColour = 'black';
 var xCharacter = 200;
 var yCharacter = gameHeight - 200;
+var enemy;
 var xObstacles = [
   [],
   [],
