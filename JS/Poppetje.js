@@ -1,4 +1,5 @@
 var level = 0;
+var maxLevel = 9;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
 var floorHeight;
@@ -95,9 +96,54 @@ var enemySize = [
   100,
   100
 ]
+var answerX = [
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700],
+  [300, 300, 700, 700]
+]
+
+var answerY = [
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300],
+ [700, 300, 700, 300]
+]
+
+var question = [
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_pear.png'),
+  loadImage('../JS/images/QZ_cherry_on_top.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  loadImage('../JS/images/QZ_banana.png'),
+  
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
-  backGround = [loadImage('../JS/images/background.png'), loadImage('../JS/images/background.png')]
+  backGround = [loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png'), 
+                loadImage('../JS/images/background.png')]
   obstacle = [
     [loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
     [],
@@ -123,7 +169,7 @@ function setup() {
   createCanvas(gameWidth, gameHeight);
 }
 
-// the code will draw all the background images
+
 function draw() {
   background(backGround[level]);
   drawObstacles();
@@ -207,10 +253,14 @@ function moveCharacter() {
   yCharacter = yCharacter + ySpeed;
   if(xCharacter <= 0 - playerSize) {
     xCharacter = gameWidth + playerSize;
-    level--;
+    if(level > 0 && levelComplete[level] = true) {
+      level--;
+    }
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
-    level++
+    if(level < maxLevel && levelComplete[level] = true) {
+      level++;
+    }
   }
   if(yCharacter > floorHeight && yCharacter < floorHeight + 5) {
     yCharacter = floorHeight;
