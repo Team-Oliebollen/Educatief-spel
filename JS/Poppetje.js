@@ -290,12 +290,12 @@ function moveCharacter() {
   yCharacter = yCharacter + ySpeed;
   if(xCharacter <= 0 - playerSize) {
     xCharacter = gameWidth + playerSize;
-    if(level > 0 && levelComplete[level] = true) {
+    if(level > 0 && levelComplete[level] == true) {
       level--;
     }
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
-    if(level < maxLevel && levelComplete[level] = true) {
+    if(level < maxLevel && levelComplete[level] == true) {
       level++;
     }
   }
