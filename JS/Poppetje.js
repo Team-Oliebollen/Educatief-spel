@@ -175,6 +175,7 @@ function setup() {
 
 function draw() {
   background(backGround[level]);
+  drawText();
   drawObstacles();
   checkObstacles();
   moveCharacter();
@@ -182,9 +183,26 @@ function draw() {
   drawEnemy();
 }
 
+function drawText() {
+  if(levelComplete[level] == true) {
+    textSize(100)
+    text('CONGRATULATIONS', 100, 100)
+  } else if(levelComplete == false) {
+    textsize(30)
+    text('Defeat the enemy!', 500, 100)
+  }
+  
+}
+
 function drawEnemy() {
   if (levelComplete[level] == false) {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
+    rect(answerX[level][0], answerY[level][0], 100, 100);
+    rect(answerX[level][1], answerY[level][1], 100, 100);
+    rect(answerX[level][2], answerY[level][2], 100, 100);
+    rect(answerX[level][3], answerY[level][3], 100, 100);
+    textSize(30)
+    
   }
 }
 
@@ -232,6 +250,14 @@ function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
     if(xCharacter < answerX[level][i] + 100 && xCharacter > answerX[level][i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
       if(i == correctAnswer[level]) {
+        levelComplete[level] = true;
+        i = 100;
+      } else if(i != correctAnswer[level]) {
+        for(i = 0; i < correctAnswer.length) {
+          levelComplete[i] = false;
+        }
+        level = 0
+      }
     }
   }
 }
