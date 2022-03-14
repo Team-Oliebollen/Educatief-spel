@@ -253,7 +253,7 @@ function checkEnemy() {
         levelComplete[level] = true;
         i = 100;
       } else if(i != correctAnswer[level]) {
-        for(i = 0; i < correctAnswer.length) {
+        for(i = 0; i < correctAnswer.length; i++) {
           levelComplete[i] = false;
         }
         level = 0
