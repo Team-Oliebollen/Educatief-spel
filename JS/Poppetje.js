@@ -122,6 +122,9 @@ var answerY = [
  [700, 300, 700, 300]
 ]
 
+var correctAnswer = [
+  3, 4, 1, 4, 3, 3, 2, 1, 4, 4
+]
 var question = [
   loadImage('../JS/images/QZ_banana.png'),
   loadImage('../JS/images/QZ_pear.png'),
@@ -133,8 +136,8 @@ var question = [
   loadImage('../JS/images/QZ_banana.png'),
   loadImage('../JS/images/QZ_banana.png'),
   loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  
+  loadImage('../JS/images/QZ_banana.png')
+]
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), 
@@ -184,7 +187,7 @@ function drawEnemy() {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
   }
 }
-// this code draws the apple-character
+
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
 }
@@ -221,6 +224,14 @@ function checkObstacles() {
               yCharacter <= gameHeight - yObstacles[level][i] + playerSize && 
               obsCollision[level][i] == true) {
       xCharacter = constrain(xCharacter, xObstacles[level][i] + obsWidth[level][i], 20000);
+    }
+  }
+}
+
+function checkEnemy() {
+  for(i = 0; i < answerX.length; i++) {
+    if(xCharacter < answerX[level][i] + 100 && xCharacter > answerX[level][i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
+      if(i == correctAnswer[level]) {
     }
   }
 }
