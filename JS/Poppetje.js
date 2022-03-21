@@ -167,7 +167,7 @@ function drawText() {
     textSize(100)
     text('CONGRATULATIONS', 100, 100)
   } else if(levelComplete[level] == false) {
-    textsize(30)
+    textSize(30)
     text('Defeat the enemy!', 500, 100)
   }
   
