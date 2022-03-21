@@ -11,7 +11,7 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var xObstacles = [
-  300, 300
+  
 ];
 var yObstacles = [
  
