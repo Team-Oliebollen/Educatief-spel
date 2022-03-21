@@ -1,4 +1,5 @@
 var level = 0;
+var hp = 2;
 var maxLevel = 30;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
@@ -61,42 +62,9 @@ var levelComplete = [
   false,
   false
 ]
-var xEnemy = [
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500
-]
-var yEnemy = [
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500,
-  500
-]
-var enemySize = [
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100,
-  100
-]
+var xEnemy = 500;
+var yEnemy = 500;
+var enemySize = 100;
 var answerX = [
   300, 300, 700, 700
 ]
@@ -153,7 +121,7 @@ function setup() {
 
 
 function draw() {
-  background(backGround[level]);
+  background(random(backGround));
   drawText();
   drawObstacles();
   checkObstacles();
