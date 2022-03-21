@@ -123,16 +123,6 @@ function preload() {
                 loadImage('../JS/images/background.png'), 
                 loadImage('../JS/images/background.png'), 
                 loadImage('../JS/images/background.png')]
-  question = [loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_cherry_on_top.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png'),
-              loadImage('../JS/images/QZ_banana.png')]
   obstacle = [
     [loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
     [],
