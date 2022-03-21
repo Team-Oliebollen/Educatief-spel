@@ -11,19 +11,19 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var xObstacles = [
-  1, 1, 1, 1, 1
+  200, 600
 ];
 var yObstacles = [
- 1, 1, 1,1 , 1
+ 500, 500
 ];
 var obsWidth = [
-1, 1, 11, 1
+  400, 400
 ];
 var obsHeight = [
-1, 1, 1,1 1
+150, 150
 ];
 var obsCollision = [
-1, 1,1 1, 1,1
+true, true
 ]
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
