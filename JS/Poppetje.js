@@ -148,6 +148,7 @@ function preload() {
 // this creates the measures of the game
 function setup() {
   createCanvas(gameWidth, gameHeight);
+  randomwords();
 }
 
 
@@ -306,6 +307,7 @@ function moveCharacter() {
     xCharacter = 0 - playerSize;
     if(levelComplete[level] == true) {
       level++;
+      randomwords();
     }
   }
   if(yCharacter > floorHeight && yCharacter < floorHeight + 5) {
