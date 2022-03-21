@@ -106,7 +106,9 @@ var answerY = [
 ]
 
 var correctAnswer;
-
+var word1;
+var word2;
+var word3;
 var words = [
   ['chocolate', 'chocolade'],
   ['lime', 'limoen'],
@@ -163,47 +165,52 @@ function drawText() {
   if(levelComplete[level] == true) {
     textSize(100)
     text('CONGRATULATIONS', 100, 100)
-  } else if(levelComplete == false) {
+  } else if(levelComplete[level] == false) {
     textsize(30)
     text('Defeat the enemy!', 500, 100)
   }
   
 }
-
+function randomWords() {
+  correctAnswer = floor(random(1, 5));
+  word1 = random(words)[1];
+  word2 = random(words)[1];
+  word3 = random(words)[1];
+}
 function drawEnemy() {
   if (levelComplete[level] == false) {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
-    rect(answerX[0], answerY[0], 100, 100);
-    rect(answerX[1], answerY[1], 100, 100);
-    rect(answerX[2], answerY[2], 100, 100);
-    rect(answerX[3], answerY[3], 100, 100);
+    rect(answerX[0], answerY[0], 200, 100);
+    rect(answerX[1], answerY[1], 200, 100);
+    rect(answerX[2], answerY[2], 200, 100);
+    rect(answerX[3], answerY[3], 200, 100);
     textSize(30)
     if(level > words.length) {
       word = random(words);
     } else if(level <= words.length) {
       word = words[level];
     }
-    correctAnswer = floor(random(1, 5));
+    
     if(correctAnswer == 1) {
-      text(word[1], answerX[0], answerY[0]);
-      text(random(words)[1], answerX[1], answerY[1]);
-      text(random(words)[1], answerX[2], answerY[2]);
-      text(random(words)[1], answerX[3], answerY[3]);
+      text(word[1], answerX[0] + 5, answerY[0] + 50);
+      text(word1, answerX[1] + 5, answerY[1] + 50);
+      text(word2, answerX[2] + 5, answerY[2] + 50);
+      text(word3, answerX[3] + 5, answerY[3] + 50);
     } else if(correctAnswer == 2) {
-      text(random(words)[1], answerX[0], answerY[0]);
-      text(word[1], answerX[1], answerY[1]);
-      text(random(words)[1], answerX[2], answerY[2]);
-      text(random(words)[1], answerX[3], answerY[3]);
+      text(word1, answerX[0] + 5, answerY[0] + 50);
+      text(word[1], answerX[1] + 5, answerY[1] + 50);
+      text(word2, answerX[2] + 5, answerY[2] + 50);
+      text(word3, answerX[3] + 5, answerY[3] + 50);
     } else if(correctAnswer == 3) {
-      text(random(words)[1], answerX[0], answerY[0]);
-      text(random(words)[1], answerX[1], answerY[1]);
-      text(word[1], answerX[2], answerY[2]);
-      text(random(words)[1], answerX[3], answerY[3]);
+      text(word1, answerX[0] + 5, answerY[0] + 50);
+      text(word2, answerX[1] + 5, answerY[1] + 50);
+      text(word[1], answerX[2] + 5, answerY[2] + 50);
+      text(word3, answerX[3] + 5, answerY[3] + 50);
     } else if(correctAnswer == 4) {
-      text(random(words)[1], answerX[0], answerY[0]);
-      text(random(words)[1], answerX[1], answerY[1]);
-      text(random(words)[1], answerX[2], answerY[2]);
-      text(word[1], answerX[3], answerY[3]);
+      text(word1, answerX[0] + 5, answerY[0] + 50);
+      text(word2, answerX[1] + 5, answerY[1] + 50);
+      text(word3, answerX[2] + 5, answerY[2] + 50);
+      text(word[1], answerX[3] + 5, answerY[3] + 50);
     }
   }
 }
