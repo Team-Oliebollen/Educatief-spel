@@ -17,22 +17,13 @@ var yObstacles = [
  
 ];
 var obsWidth = [
-  [],
-  [],
-  [],
-  []
+
 ];
 var obsHeight = [
-  [],
-  [],
-  [],
-  []
+
 ];
 var obsCollision = [
-  [],
-  [],
-  [],
-  []
+
 ]
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
