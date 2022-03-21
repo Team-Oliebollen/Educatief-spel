@@ -1,5 +1,5 @@
 var level = 0;
-var maxLevel = 9;
+var maxLevel = 30;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
 var floorHeight;
@@ -8,6 +8,7 @@ var backGroundColour = 'black';
 var xCharacter = 200;
 var yCharacter = gameHeight - 200;
 var enemy;
+var question;
 var xObstacles = [
   [],
   [],
@@ -97,47 +98,22 @@ var enemySize = [
   100
 ]
 var answerX = [
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700],
-  [300, 300, 700, 700]
+  300, 300, 700, 700
 ]
 
 var answerY = [
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300],
- [700, 300, 700, 300]
+ 700, 300, 700, 300
 ]
 
-var correctAnswer = [
-  3, 4, 1, 4, 3, 3, 2, 1, 4, 4
+var correctAnswer;
+
+var words = [
+  ['chocolate', 'chocolade'],
+  ['lime', 'limoen'],
+  ['strawberry', 'aardbei'],
+  ['garden', 'tuin']
 ]
-var question = [
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_pear.png'),
-  loadImage('../JS/images/QZ_cherry_on_top.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png'),
-  loadImage('../JS/images/QZ_banana.png')
-]
+var word;
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), 
@@ -147,6 +123,16 @@ function preload() {
                 loadImage('../JS/images/background.png'), 
                 loadImage('../JS/images/background.png'), 
                 loadImage('../JS/images/background.png')]
+  question = [loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_cherry_on_top.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png'),
+              loadImage('../JS/images/QZ_banana.png')]
   obstacle = [
     [loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
     [],
@@ -197,12 +183,38 @@ function drawText() {
 function drawEnemy() {
   if (levelComplete[level] == false) {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
-    rect(answerX[level][0], answerY[level][0], 100, 100);
-    rect(answerX[level][1], answerY[level][1], 100, 100);
-    rect(answerX[level][2], answerY[level][2], 100, 100);
-    rect(answerX[level][3], answerY[level][3], 100, 100);
+    rect(answerX[0], answerY[0], 100, 100);
+    rect(answerX[1], answerY[1], 100, 100);
+    rect(answerX[2], answerY[2], 100, 100);
+    rect(answerX[3], answerY[3], 100, 100);
     textSize(30)
-    
+    if(level > words.length) {
+      word = random(words);
+    } else if(level <= words.length) {
+      word = words[level];
+    }
+    correctAnswer = floor(random(1, 5));
+    if(correctAnswer == 1) {
+      text(word[1], answerX[0], answerY[0]);
+      text(random(words)[1], answerX[1], answerY[1]);
+      text(random(words)[1], answerX[2], answerY[2]);
+      text(random(words)[1], answerX[3], answerY[3]);
+    } else if(correctAnswer == 2) {
+      text(random(words)[1], answerX[0], answerY[0]);
+      text(word[1], answerX[1], answerY[1]);
+      text(random(words)[1], answerX[2], answerY[2]);
+      text(random(words)[1], answerX[3], answerY[3]);
+    } else if(correctAnswer == 3) {
+      text(random(words)[1], answerX[0], answerY[0]);
+      text(random(words)[1], answerX[1], answerY[1]);
+      text(word[1], answerX[2], answerY[2]);
+      text(random(words)[1], answerX[3], answerY[3]);
+    } else if(correctAnswer == 4) {
+      text(random(words)[1], answerX[0], answerY[0]);
+      text(random(words)[1], answerX[1], answerY[1]);
+      text(random(words)[1], answerX[2], answerY[2]);
+      text(word[1], answerX[3], answerY[3]);
+    }
   }
 }
 
@@ -249,10 +261,10 @@ function checkObstacles() {
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
     if(xCharacter < answerX[level][i] + 100 && xCharacter > answerX[level][i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
-      if(i == correctAnswer[level]) {
+      if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
-      } else if(i != correctAnswer[level]) {
+      } else if(i != correctAnswer) {
         for(i = 0; i < correctAnswer.length; i++) {
           levelComplete[i] = false;
         }
@@ -295,7 +307,7 @@ function moveCharacter() {
     }
   } else if(xCharacter >= playerSize + gameWidth) {
     xCharacter = 0 - playerSize;
-    if(level < maxLevel && levelComplete[level] == true) {
+    if(levelComplete[level] == true) {
       level++;
     }
   }
