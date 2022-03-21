@@ -210,7 +210,7 @@ function checkObstacles() {
 
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
-    if(xCharacter < answerX[i] + 100 && xCharacter > answerX[i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
+    if(xCharacter < answerX[i] + 100 && xCharacter > answerX[i] && yCharacter < gameHeight - answerY[i] && yCharacter > gameheight - answerY[i] - 100) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
