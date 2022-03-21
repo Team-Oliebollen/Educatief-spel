@@ -11,16 +11,10 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var xObstacles = [
-  [],
-  [],
-  [],
-  []
+  300, 300
 ];
 var yObstacles = [
-  [],
-  [],
-  [],
-  []
+ 
 ];
 var obsWidth = [
   [],
@@ -128,6 +122,7 @@ function draw() {
   moveCharacter();
   drawCharacter();
   drawEnemy();
+  checkEnemy();
 }
 
 function drawText() {
