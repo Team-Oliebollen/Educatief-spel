@@ -185,18 +185,18 @@ function drawCharacter() {
 
 
 function drawObstacles() {
-  for(i = 0; i < xObstacles[level].length; i++) {
+  for(i = 0; i < xObstacles.length; i++) {
     image(obstacle[level][i], xObstacles[level][i], gameHeight - yObstacles[level][i] - obsHeight[level][i], obsWidth[level][i], obsHeight[level][i]);
   }
 }
 
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
-    if(xCharacter <= xObstacles[level][i] + obsWidth[level][i] && 
-       xCharacter >= xObstacles[level][i] - playerSize && 
-       yCharacter >= gameHeight - yObstacles[level][i] - obsHeight[level][i] - playerSize - 50 && 
-       yCharacter <= gameHeight - yObstacles[level][i]) {
-      floorHeight = gameHeight - yObstacles[level][i] - obsHeight[level][i];
+    if(xCharacter <= xObstacles[i] + obsWidth[i] && 
+       xCharacter >= xObstacles[i] - playerSize && 
+       yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize - 50 && 
+       yCharacter <= gameHeight - yObstacles[i]) {
+      floorHeight = gameHeight - yObstacles[i] - obsHeight[i];
       i = xObstacles.length;
     } else {
       floorHeight = gameHeight - 100;
@@ -221,7 +221,7 @@ function checkObstacles() {
 
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
-    if(xCharacter < answerX[level][i] + 100 && xCharacter > answerX[level][i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
+    if(xCharacter < answerX[i] + 100 && xCharacter > answerX[i] && yCharacter < gameHeight - answerY && yCharacter > gameheight - answerY - 100) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
@@ -235,7 +235,7 @@ function checkEnemy() {
   }
 }
 
-// this is how you can move the apple character
+
 function moveCharacter() {
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
