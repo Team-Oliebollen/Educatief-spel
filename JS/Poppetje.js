@@ -11,10 +11,10 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var xObstacles = [
-  200, 600
+  200, 900
 ];
 var yObstacles = [
- 500, 500
+ 300, 300
 ];
 var obsWidth = [
   400, 400
@@ -51,7 +51,7 @@ var xEnemy = 500;
 var yEnemy = 500;
 var enemySize = 100;
 var answerX = [
-  300, 300, 700, 700
+  300, 300, 1000, 1000
 ]
 
 var answerY = [
