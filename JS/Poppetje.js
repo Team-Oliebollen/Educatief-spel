@@ -186,7 +186,7 @@ function drawCharacter() {
 
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
-    image(obstacle[level][i], xObstacles[level][i], gameHeight - yObstacles[level][i] - obsHeight[level][i], obsWidth[level][i], obsHeight[level][i]);
+    image(obstacle[i], xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
   }
 }
 
