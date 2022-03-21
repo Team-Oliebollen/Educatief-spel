@@ -79,10 +79,8 @@ function preload() {
                 loadImage('../JS/images/background.png'), 
                 loadImage('../JS/images/background.png')]
   obstacle = [
-    [loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')],
-    [],
-    [],
-    []
+    loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'),
+    loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg'), loadImage('../JS/images/wall.jpg')
   ]
   enemy = [
     loadImage('../JS/images/EV_pizza.png'),
