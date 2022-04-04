@@ -127,7 +127,7 @@ function drawText() {
   text('health: ' + hp, 50, gameHeight - 100);
   text('level: ' + (level + 1), 50, gameHeight - 150);
   textSize(50);
-  text('What is "' + word + '" in Dutch?', 600, 250);
+  text('What is "' + word[0] + '" in Dutch?', 600, 250);
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
