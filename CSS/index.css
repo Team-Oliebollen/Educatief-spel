@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -52,3 +59,17 @@ body {
 }
 </style>
 </head>
+<body>
+
+<div class="header">
+  <a href="#default" class="logo">Educatief spel</a>
+  <div class="header-right">
+    <a href="html/testpoppetje.html">rubens test voor poppetje</a>
+    <a href="https://informatica-leerling.pzsg.nl/20414/Educatief_spel/login1.php">Inloggen</a>
+    <a href="https://informatica-leerling.pzsg.nl/20414/Educatief_spel/signup.php">Maak nieuw account aan</a>
+  </div>
+</div>
+
+
+</body>
+</html>
