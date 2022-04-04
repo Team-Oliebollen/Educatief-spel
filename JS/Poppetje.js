@@ -221,10 +221,10 @@ function checkEnemy() {
        xCharacter > answerX[i] - 75 && 
        yCharacter > answerY[i] - 75 && 
        yCharacter < answerY[i] + 175) {
-      if(i == correctAnswer) {
+      if(i == correctAnswer - 1) {
         levelComplete[level] = true;
         i = 100;
-      } else if(i != correctAnswer) {
+      } else if(i != correctAnswer - 1) {
         hp--;
         //xCharacter = 650;
         //yCharacter = 600;
