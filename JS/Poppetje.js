@@ -210,9 +210,9 @@ function checkObstacles() {
 
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
-    if(xCharacter < answerX[i] + 100 && 
-       xCharacter > answerX[i] && 
-       yCharacter < gameHeight - answerY[i] && 
+    if(xCharacter < answerX[i] + 175 && 
+       xCharacter > answerX[i] - 75 && 
+       yCharacter < gameHeight - answerY[i] - 75 && 
        yCharacter > gameHeight - answerY[i] - 175) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
@@ -222,7 +222,9 @@ function checkEnemy() {
         if(hp == 0) {
           for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
-            level = 0
+            level = 0;
+            xCharacter = 500;
+            yCharacter = 400;
           }
         }
         
