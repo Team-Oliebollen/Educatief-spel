@@ -220,7 +220,7 @@ function checkEnemy() {
     if(xCharacter < answerX[i] + 175 && 
        xCharacter > answerX[i] - 75 && 
        yCharacter < answerY[i] - 75 && 
-       yCharacter > answerY[i] - 175) {
+       yCharacter > answerY[i] + 175) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
