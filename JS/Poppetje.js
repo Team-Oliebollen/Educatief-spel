@@ -106,12 +106,12 @@ function setup() {
 
 function draw() {
   background(random(backGround));
-  drawText();
   drawObstacles();
   checkObstacles();
   moveCharacter();
   drawEnemy();
   checkEnemy();
+  drawText();
   drawCharacter();
 }
 
