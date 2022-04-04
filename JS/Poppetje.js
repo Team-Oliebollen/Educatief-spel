@@ -226,8 +226,8 @@ function checkEnemy() {
         i = 100;
       } else if(i != correctAnswer) {
         hp--;
-        xCharacter = 650;
-        yCharacter = 600;
+        //xCharacter = 650;
+        //yCharacter = 600;
         if(hp == 0) {
           for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
