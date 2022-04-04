@@ -110,7 +110,9 @@ function draw() {
   checkObstacles();
   moveCharacter();
   drawEnemy();
-  checkEnemy();
+  if(levelComplete[level] == false) {
+    checkEnemy();
+  }
   drawText();
   drawCharacter();
 }
