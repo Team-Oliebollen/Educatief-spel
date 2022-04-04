@@ -109,9 +109,9 @@ function draw() {
   drawObstacles();
   checkObstacles();
   moveCharacter();
-  drawCharacter();
   drawEnemy();
   checkEnemy();
+  drawCharacter();
 }
 
 function drawText() {
@@ -210,12 +210,15 @@ function checkObstacles() {
 
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
-    if(xCharacter < answerX[i] + 100 && xCharacter > answerX[i] && yCharacter < gameHeight - answerY[i] && yCharacter > gameHeight - answerY[i] - 100) {
+    if(xCharacter < answerX[i] + 100 && 
+       xCharacter > answerX[i] && 
+       yCharacter < gameHeight - answerY[i] && 
+       yCharacter > gameHeight - answerY[i] - 175) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
       } else if(i != correctAnswer) {
-        for(i = 0; i < correctAnswer.length; i++) {
+        for(i = 0; i <= level; i++) {
           levelComplete[i] = false;
         }
         level = 0
