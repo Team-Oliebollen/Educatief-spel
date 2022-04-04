@@ -123,7 +123,11 @@ function drawText() {
     textSize(30)
     text('Defeat the enemy!', 500, 100)
   }
-  text('health: ' + hp, 50, gameHeight - 100)
+  textSize(30);
+  text('health: ' + hp, 50, gameHeight - 100);
+  text('level: ' + (level + 1), 50 gameHeight - 150);
+  textSize(50);
+  text('What is "' + word + '" in Dutch?', 600, 250);
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
