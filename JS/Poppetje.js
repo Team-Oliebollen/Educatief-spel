@@ -1,5 +1,5 @@
 var level = 0;
-var hp = 2;
+var hp = 3;
 var maxLevel = 30;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
@@ -122,7 +122,7 @@ function drawText() {
     textSize(30)
     text('Defeat the enemy!', 500, 100)
   }
-  
+  text('health' + hp, 50, gameHeight - 100)
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
@@ -218,10 +218,14 @@ function checkEnemy() {
         levelComplete[level] = true;
         i = 100;
       } else if(i != correctAnswer) {
-        for(i = 0; i <= level; i++) {
-          levelComplete[i] = false;
+        hp--;
+        if(hp == 0) {
+          for(i = 0; i <= level; i++) {
+            levelComplete[i] = false;
+            level = 0
+          }
         }
-        level = 0
+        
       }
     }
   }
