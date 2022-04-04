@@ -118,16 +118,18 @@ function draw() {
 function drawText() {
   if(levelComplete[level] == true) {
     textSize(100)
-    text('CONGRATULATIONS', 100, 100)
+    text("CONGRATULATIONS, you're f@#*ing EPIC"', 100, 100)
   } else if(levelComplete[level] == false) {
     textSize(30)
     text('Defeat the enemy!', 500, 100)
+    textSize(50);
+    text('What is "' + word[0] + '" in Dutch?', 500, 250);
   }
   textSize(30);
   text('health: ' + hp, 50, gameHeight - 100);
   text('level: ' + (level + 1), 50, gameHeight - 150);
-  textSize(50);
-  text('What is "' + word[0] + '" in Dutch?', 500, 250);
+  
+  
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
@@ -217,8 +219,8 @@ function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
     if(xCharacter < answerX[i] + 175 && 
        xCharacter > answerX[i] - 75 && 
-       yCharacter < gameHeight - answerY[i] - 75 && 
-       yCharacter > gameHeight - answerY[i] - 175) {
+       yCharacter < answerY[i] - 75 && 
+       yCharacter > answerY[i] - 175) {
       if(i == correctAnswer) {
         levelComplete[level] = true;
         i = 100;
