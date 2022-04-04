@@ -219,13 +219,14 @@ function checkEnemy() {
         i = 100;
       } else if(i != correctAnswer) {
         hp--;
+        xCharacter = 500;
+        yCharacter = 400;
         if(hp == 0) {
           for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
-            level = 0;
-            xCharacter = 500;
-            yCharacter = 400;
           }
+          level = 0;
+          hp = 3;
         }
         
       }
