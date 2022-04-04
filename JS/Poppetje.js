@@ -55,7 +55,8 @@ var answerX = [
 ]
 
 var answerY = [
- 700, 400, 700, 400
+ 600, 300, 600, 300
+  
 ]
 
 var correctAnswer;
