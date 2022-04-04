@@ -122,7 +122,7 @@ function drawText() {
     textSize(30)
     text('Defeat the enemy!', 500, 100)
   }
-  text('health' + hp, 50, gameHeight - 100)
+  text('health: ' + hp, 50, gameHeight - 100)
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
