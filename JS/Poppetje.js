@@ -190,6 +190,9 @@ function drawText() {
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
+  word1 = random(words)[1];
+  word2 = random(words)[1];
+  word3 = random(words)[1];
   for(i = 0; i < 1; i--) {
     if(word1 == word[level] || word2 == word[level] || word3 == word[level] || word1 == word2 || word2 == word3 || word1 == word3) {
       word1 = random(words)[1];
