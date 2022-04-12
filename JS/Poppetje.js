@@ -151,6 +151,7 @@ function draw() {
   drawText(); //zet de algemene tekst neer
   drawCharacter(); //teken het karakter
   playMusic(); //speel muziek af
+  if(keyIsDown(76) && keyIsDown9(17)) {image(cat, random(0, gameWidth), random(0, gameHeight), random(50, 500), random(50, 500))} //shhhhhh
 }
 
 //functie die muziek laat afspelen als er op dit moment geen muziek bezig is, op willekeurige intervallen
