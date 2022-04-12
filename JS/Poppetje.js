@@ -211,18 +211,18 @@ function checkObstacles() {
     }
   }
   for(i = 0; i < xObstacles.length; i++) {
-    if(xCharacter >= xObstacles[level][i] - playerSize * 1.3 && 
-       xCharacter < xObstacles[level][i] + obsWidth[level][i] * 0.5 && 
-       yCharacter >= gameHeight - yObstacles[level][i] - playerSize + 10 && 
-       yCharacter <= gameHeight - yObstacles[level][i] + playerSize && 
-       obsCollision[level][i] == true) {
-      xCharacter = constrain(xCharacter, -10000, xObstacles[level][i] - playerSize);
-    } else if(xCharacter <= xObstacles[level][i] + obsWidth[level][i] + playerSize && 
-              xCharacter > xObstacles[level][i] + obsWidth[level][i] * 0.51 && 
-              yCharacter >= gameHeight - yObstacles[level][i] - playerSize && 
-              yCharacter <= gameHeight - yObstacles[level][i] + playerSize && 
-              obsCollision[level][i] == true) {
-      xCharacter = constrain(xCharacter, xObstacles[level][i] + obsWidth[level][i], 20000);
+    if(xCharacter >= xObstacles[i] - playerSize * 1.3 && 
+       xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
+       yCharacter >= gameHeight - yObstacles[i] - playerSize + 10 && 
+       yCharacter <= gameHeight - yObstacles[i] + playerSize && 
+       obsCollision[i] == true) {
+      xCharacter = constrain(xCharacter, -10000, xObstacles[i] - playerSize);
+    } else if(xCharacter <= xObstacles[i] + obsWidth[i] + playerSize && 
+              xCharacter > xObstacles[i] + obsWidth[i] * 0.51 && 
+              yCharacter >= gameHeight - yObstacles[i] - playerSize && 
+              yCharacter <= gameHeight - yObstacles[i] + playerSize && 
+              obsCollision[i] == true) {
+      xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000);
     }
   }
 }
