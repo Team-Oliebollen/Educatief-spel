@@ -145,7 +145,7 @@ function draw() {
 }
 
 function playMusic() {
-  if(!music.isPlaying() && floor(random(0, 120)) == 89) {
+  if(!music[song].isPlaying() && floor(random(0, 120)) == 89) {
     song = floor(random() * 14);
     music[song].play();
   }
