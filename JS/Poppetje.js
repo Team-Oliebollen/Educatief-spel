@@ -130,8 +130,8 @@ function draw() {
 
 function drawText() {
   if(levelComplete[level] == true) {
-    textSize(100)
-    text("CONGRATULATIONS, you're f@#*ing EPIC", 100, 100);
+    textSize(50)
+    text("CONGRATULATIONS!", 300, 100);
   } else if(levelComplete[level] == false) {
     textSize(30)
     text('Defeat the enemy!', 500, 100)
