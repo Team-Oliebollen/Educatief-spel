@@ -207,6 +207,19 @@ function drawEnemy() {
     textSize(30)
     word = words[level];
     
+    if(word1 == undefined) {
+      word1 = random(words)[1];
+      word2 = random(words)[1];
+      word3 = random(words)[1];
+      if(word1 == word[level] || word2 == word[level] || word3 == word[level]) {
+        word1 = random(words)[1];
+        word2 = random(words)[1];
+        word3 = random(words)[1];
+      } else {
+        i = 100;
+      }
+    }
+    
     if(correctAnswer == 1) {
       text(word[1], answerX[0] + 5, answerY[0] + 50);
       text(word1, answerX[1] + 5, answerY[1] + 50);
