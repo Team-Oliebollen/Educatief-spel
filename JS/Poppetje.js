@@ -2,7 +2,7 @@
 //hier hebben we wat basisvariabelen, zoals het level, het hoogste aantal mogelijke levels, de breedte en hoogte van de game, enz.
 var level = 0;
 var hp = 3;
-var maxLevel = 100;
+var maxLevel = 40;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
 var floorHeight;
@@ -135,10 +135,14 @@ function setup() {
   waS = loadSound('../JS/sound/wronganswer.mp3');
   jump = loadSound('../JS/sound/jump.mp3');
   if(maxLevel > levelComplete.length) {
-    for(i = 0, i < maxLevel - levelComplete.length) {
+    for(i = 0; i < maxLevel - levelComplete.length; i++) {
       levelComplete.push(false);
     }
   }
+  if(words.length < maxLevel) {
+    for(i = 0; i < maxLevel - words.length; i++) {
+      words.push(random(words));
+    }
 }
 
 
@@ -181,10 +185,17 @@ function drawText() {
 }
 function randomWords() {
   correctAnswer = floor(random(1, 5));
-  word1 = random(words)[1];
-  word2 = random(words)[1];
-  word3 = random(words)[1];
+  for(i = 0; i < 1; i--) {
+    if(word1 == word[level] || word2 == word[level] || word3 == word[level]) {
+      word1 = random(words)[1];
+      word2 = random(words)[1];
+      word3 = random(words)[1];
+    } else {
+      i = 100;
+    }
+  }
 }
+  
 function drawEnemy() {
   if (levelComplete[level] == false) {
     image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
@@ -193,11 +204,7 @@ function drawEnemy() {
     rect(answerX[2], answerY[2], 200, 100);
     rect(answerX[3], answerY[3], 200, 100);
     textSize(30)
-    if(level >= words.length) {
-      word = random(words);
-    } else if(level < words.length) {
-      word = words[level];
-    }
+    word = words[level];
     
     if(correctAnswer == 1) {
       text(word[1], answerX[0] + 5, answerY[0] + 50);
