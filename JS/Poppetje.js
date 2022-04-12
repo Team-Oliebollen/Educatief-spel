@@ -206,7 +206,6 @@ function randomWords() {
   
 function drawEnemy() {
   if (levelComplete[level] == false) {
-    image(enemy[level], xEnemy[level], gameHeight - yEnemy[level], enemySize[level], enemySize[level]);
     rect(answerX[0], answerY[0], 200, 100);
     rect(answerX[1], answerY[1], 200, 100);
     rect(answerX[2], answerY[2], 200, 100);
