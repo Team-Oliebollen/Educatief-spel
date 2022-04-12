@@ -102,17 +102,28 @@ function preload() {
     loadImage('../JS/images/EV_pizza.png'),
     loadImage('../JS/images/EV_pizza.png')
   ]
-  for(i = 1; i < 15; i++) {
-    music = loadSound('../JS/sound/m-' + i + '.mp3');
-  }
+  
+  music = [loadSound('../JS/sound/m-0.mp3'),
+           loadSound('../JS/sound/m-1.mp3'),
+           loadSound('../JS/sound/m-2.mp3'),
+           loadSound('../JS/sound/m-3.mp3'),
+           loadSound('../JS/sound/m-4.mp3'),
+           loadSound('../JS/sound/m-5.mp3'),
+           loadSound('../JS/sound/m-6.mp3'),
+           loadSound('../JS/sound/m-7.mp3'),
+           loadSound('../JS/sound/m-8.mp3'),
+           loadSound('../JS/sound/m-9.mp3'),
+           loadSound('../JS/sound/m-10.mp3'),
+           loadSound('../JS/sound/m-11.mp3'),
+           loadSound('../JS/sound/m-12.mp3'),
+           loadSound('../JS/sound/m-13.mp3')]
+  
 }
 
 // this creates the measures of the game
 function setup() {
   createCanvas(gameWidth, gameHeight);
   randomWords();
-  song = floor(random() * 15);
-  music = loadSound('../JS/sound/m-' + song + '.mp3');
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
   jump = loadSound('../JS/sound/jump.mp3');
@@ -135,9 +146,8 @@ function draw() {
 
 function playMusic() {
   if(!music.isPlaying() && floor(random(0, 120)) == 89) {
-    song = floor(random() * 15);
-    music = loadSound('../JS/sound/m-' + song + '.mp3');
-    music.play();
+    song = floor(random() * 14);
+    music[song].play();
   }
 }
 
