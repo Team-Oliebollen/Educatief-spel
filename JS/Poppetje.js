@@ -102,6 +102,9 @@ function preload() {
     loadImage('../JS/images/EV_pizza.png'),
     loadImage('../JS/images/EV_pizza.png')
   ]
+  for(i = 1; i < 15; i++) {
+    music = loadSound('../JS/sound/m-' + i + '.mp3');
+  }
 }
 
 // this creates the measures of the game
