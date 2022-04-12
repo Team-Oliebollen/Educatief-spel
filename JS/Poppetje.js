@@ -83,7 +83,7 @@ var words = [
   ['strawberry', 'aardbei'],
   ['garden', 'tuin']
 ]
-var word;
+var word = ['engels', 'nederlands'];
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), 
