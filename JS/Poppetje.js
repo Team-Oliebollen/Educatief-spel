@@ -31,6 +31,7 @@ var obsCollision = [
 true, true
 ]
 
+//dit zijn wat variabelen met betrekking tot beweging van het karakter
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
@@ -49,6 +50,7 @@ var caS;
 var waS;
 var jump;
 
+//dit zijn wat variabelen met betrekking tot de vragen
 var levelComplete = [
   false,
   false,
@@ -61,18 +63,13 @@ var levelComplete = [
   false,
   false
 ]
-var xEnemy = 500;
-var yEnemy = 500;
-var enemySize = 100;
 var answerX = [
   300, 300, 1000, 1000
 ]
 
 var answerY = [
- 650, 300, 650, 300
-  
+ 650, 300, 650, 300 
 ]
-
 var correctAnswer;
 var word1;
 var word2;
@@ -88,6 +85,8 @@ var words = [
   ['fruit', 'fruit'],
 ]
 var word = ['engels', 'nederlands'];
+
+//hier worden de afbeeldingen en muziek geladen
 function preload() {
   playerSprite = loadImage('../JS/images/MC_apple.png');
   backGround = [loadImage('../JS/images/background.png'), 
@@ -100,19 +99,6 @@ function preload() {
   obstacle = [
     loadImage('../JS/images/obstacle_double_rock.png'), loadImage('../JS/images/obstacle_double_rock.png')
   ]
-  enemy = [
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_fries.png'),
-    loadImage('../JS/images/EV_candy_cane.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png'),
-    loadImage('../JS/images/EV_pizza.png')
-  ]
-  
   music = [loadSound('../JS/sound/m-0.mp3'),
            loadSound('../JS/sound/m-1.mp3'),
            loadSound('../JS/sound/m-2.mp3'),
@@ -130,7 +116,7 @@ function preload() {
   
 }
 
-// this creates the measures of the game
+//hier worden de geluiden geïnitialiseerd en het canvas gemaakt
 function setup() {
   createCanvas(gameWidth, gameHeight);
   randomWords();
@@ -138,6 +124,8 @@ function setup() {
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
   jump = loadSound('../JS/sound/jump.mp3');
+  
+  //dit is om ervoor te zorgen dat het spel niet breekt wanneer je heel veel levels voltooit
   if(maxLevel > levelComplete.length) {
     for(i = 0; i < maxLevel - levelComplete.length; i++) {
       levelComplete.push(false);
@@ -152,19 +140,20 @@ function setup() {
 
 
 function draw() {
-  background(random(backGround));
-  drawObstacles();
-  checkObstacles();
-  moveCharacter();
-  drawEnemy();
+  background(random(backGround)); //maak achtergrond
+  drawObstacles(); //teken de obstakels
+  checkObstacles(); //check of het karakter een obstakel raakt
+  moveCharacter(); //beweeg het karakter
+  drawEnemy(); //teken de vraag (eerst was er een "enemy", maar die bestaat niet meer, ik heb de naam van de code zo gehouden om niks te breken)
   if(levelComplete[level] == false) {
-    checkEnemy();
+    checkEnemy(); //als de vraag nog niet beantwoord is: check of de speler bij een bepaald antwoord staat
   }
-  drawText();
-  drawCharacter();
-  playMusic();
+  drawText(); //zet de algemene tekst neer
+  drawCharacter(); //teken het karakter
+  playMusic(); //speel muziek af
 }
 
+//functie die muziek laat afspelen als er op dit moment geen muziek bezig is, op willekeurige intervallen
 function playMusic() {
   if(!music[song].isPlaying() && floor(random(0, 120)) == 89) {
     song = floor(random() * 14);
@@ -172,28 +161,30 @@ function playMusic() {
   }
 }
 
+//alle tekst die niet of weinig variabel is
 function drawText() {
   if(levelComplete[level] == true) {
     textSize(50)
     text("CONGRATULATIONS!", 300, 100);
   } else if(levelComplete[level] == false) {
     textSize(30)
-    text('Defeat the enemy!', 500, 100)
+    text('Answer the following question:', 500, 100)
     textSize(50);
     text('What is "' + word[0] + '" in Dutch?', 500, 250);
   }
   textSize(30);
   text('health: ' + hp, 50, gameHeight - 100);
   text('level: ' + (level + 1), 50, gameHeight - 150);
-  
-  
 }
+
+//functie die de woorden die niet het goede antwoord zijn willekeurig maakt
 function randomWords() {
   correctAnswer = floor(random(1, 5));
   word1 = random(words)[1];
   word2 = random(words)[1];
   word3 = random(words)[1];
   for(i = 0; i < 1; i--) {
+    //dit if-statement checkt of de woorden niet hetzelfde zijn als elkaar of het goede antwoord
     if(word1 == word[level] || word2 == word[level] || word3 == word[level] || word1 == word2 || word2 == word3 || word1 == word3) {
       word1 = random(words)[1];
       word2 = random(words)[1];
@@ -203,7 +194,8 @@ function randomWords() {
     }
   }
 }
-  
+
+//functie die de vraaghokjes tekent
 function drawEnemy() {
   if (levelComplete[level] == false) {
     rect(answerX[0], answerY[0], 200, 100);
@@ -212,7 +204,6 @@ function drawEnemy() {
     rect(answerX[3], answerY[3], 200, 100);
     textSize(30)
     word = words[level];
-    
     if(word1 == undefined) {
       word1 = random(words)[1];
       word2 = random(words)[1];
@@ -227,7 +218,7 @@ function drawEnemy() {
         }
       }
     }
-    
+    //hier worden de woorden, afhankelijk van waar het goede antwoord staat, neergezet
     if(correctAnswer == 1) {
       text(word[1], answerX[0] + 5, answerY[0] + 50);
       text(word1, answerX[1] + 5, answerY[1] + 50);
@@ -252,27 +243,29 @@ function drawEnemy() {
   }
 }
 
+//hier wordt het karakter neergezet, lekker simpel
 function drawCharacter() {
   image(playerSprite, xCharacter, yCharacter - playerSize, playerSize, playerSize);
 }
 
-
+//hier worden de obstakels neergezet, ook niet al te moeilijk
 function drawObstacles() {
   for(i = 0; i < xObstacles.length; i++) {
     image(obstacle[i], xObstacles[i], gameHeight - yObstacles[i] - obsHeight[i], obsWidth[i], obsHeight[i]);
   }
 }
 
+//functie die checkt of het karakter een obstakel raakt, een hele slechte collision engine dus
 function checkObstacles() {
   for(i = 0; i < xObstacles.length; i++) { 
     if(xCharacter <= xObstacles[i] + obsWidth[i] && 
        xCharacter >= xObstacles[i] - playerSize && 
        yCharacter >= gameHeight - yObstacles[i] - obsHeight[i] - playerSize - 50 && 
-       yCharacter <= gameHeight - yObstacles[i]) {
-      floorHeight = gameHeight - yObstacles[i] - obsHeight[i];
-      i = xObstacles.length;
+       yCharacter <= gameHeight - yObstacles[i]) /*als het karakter binnen de coordinaten van een obstakel zit*/{
+      floorHeight = gameHeight - yObstacles[i] - obsHeight[i]; //maak de hoogte van de vloer de bovenkant van het obstakel
+      i = xObstacles.length; //en eindig de controle
     } else {
-      floorHeight = gameHeight - 100;
+      floorHeight = gameHeight - 100; //als er geen obstakel in de buurt is val je tot 100 pixels boven de onderkant van het scherm
     }
   }
   for(i = 0; i < xObstacles.length; i++) {
@@ -280,24 +273,25 @@ function checkObstacles() {
        xCharacter < xObstacles[i] + obsWidth[i] * 0.5 && 
        yCharacter >= gameHeight - yObstacles[i] - playerSize + 10 && 
        yCharacter <= gameHeight - yObstacles[i] + playerSize && 
-       obsCollision[i] == true) {
-      xCharacter = constrain(xCharacter, -10000, xObstacles[i] - playerSize);
+       obsCollision[i] == true) { //als het karakter zich links van een obstakel bevindt
+      xCharacter = constrain(xCharacter, -10000, xObstacles[i] - playerSize); //constrain dan het karakter
     } else if(xCharacter <= xObstacles[i] + obsWidth[i] + playerSize && 
               xCharacter > xObstacles[i] + obsWidth[i] * 0.51 && 
               yCharacter >= gameHeight - yObstacles[i] - playerSize && 
               yCharacter <= gameHeight - yObstacles[i] + playerSize && 
-              obsCollision[i] == true) {
-      xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000);
+              obsCollision[i] == true) { //als het karakter zich rechts van een obstakel bevindt
+      xCharacter = constrain(xCharacter, xObstacles[i] + obsWidth[i], 20000); //constrain dan het karakter
     }
   }
 }
 
+//deze functie checkt of het karakter bij een antwoord is, en of dat het goede antwoord is
 function checkEnemy() {
   for(i = 0; i < answerX.length; i++) {
     if(xCharacter < answerX[i] + 175 && 
        xCharacter > answerX[i] - 75 && 
        yCharacter > answerY[i] - 75 && 
-       yCharacter < answerY[i] + 175) {
+       yCharacter < answerY[i] + 175) { /
       if(i == correctAnswer - 1) {
         caS.play();
         levelComplete[level] = true;
@@ -308,11 +302,12 @@ function checkEnemy() {
         xCharacter = 25;
         yCharacter = 600;
         if(hp == 0) {
-          for(i = 0; i <= level; i++) {
+         /* for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
           }
           level = 0;
-          hp = 3;
+          hp = 3; */
+          window.location = "https://informatica-leerling.pzsg.nl/20414/Educatief_spel/ingelogd.php";
         }
         
       }
