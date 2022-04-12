@@ -1,6 +1,8 @@
+//Het begin van de code, we gaan lekker variabelen declareren, kom je mee?
+//hier hebben we wat basisvariabelen, zoals het level, het hoogste aantal mogelijke levels, de breedte en hoogte van de game, enz.
 var level = 0;
 var hp = 3;
-var maxLevel = 30;
+var maxLevel = 100;
 var gameWidth = screen.width*0.8;
 var gameHeight = screen.height*0.8;
 var floorHeight;
@@ -10,6 +12,9 @@ var xCharacter = 200;
 var yCharacter = gameHeight - 200;
 var enemy;
 var question;
+var playerSprite;
+
+//hier zijn wat basiswaarden voor de obstakels waar je op kunt staan in het spel
 var xObstacles = [
   150, 850
 ];
@@ -25,17 +30,18 @@ var obsHeight = [
 var obsCollision = [
 true, true
 ]
+
 var walkSpeed = 10;
 var sprintSpeed = walkSpeed*2;
 var crouchSpeed = walkSpeed*0.3;
 var moveSpeed;
-var playerSprite;
 var backGround;
 var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 17.5;
 var topFloor;
 
+//hier zijn de ongedeclareerde variabelen om geluiden mee in te laden
 var song;
 var music;
 var jumpS;
@@ -128,6 +134,11 @@ function setup() {
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
   jump = loadSound('../JS/sound/jump.mp3');
+  if(maxLevel > levelComplete.length) {
+    for(i = 0, i < maxLevel - levelComplete.length) {
+      levelComplete.push(false);
+    }
+  }
 }
 
 
