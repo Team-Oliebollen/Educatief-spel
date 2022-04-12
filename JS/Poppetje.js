@@ -182,9 +182,9 @@ function drawEnemy() {
     rect(answerX[2], answerY[2], 200, 100);
     rect(answerX[3], answerY[3], 200, 100);
     textSize(30)
-    if(level > words.length) {
+    if(level >= words.length) {
       word = random(words);
-    } else if(level <= words.length) {
+    } else if(level < words.length) {
       word = words[level];
     }
     
