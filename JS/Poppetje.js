@@ -81,7 +81,11 @@ var words = [
   ['chocolate', 'chocolade'],
   ['lime', 'limoen'],
   ['strawberry', 'aardbei'],
-  ['garden', 'tuin']
+  ['garden', 'tuin'],
+  ['dog', 'hond'],
+  ['pizza', 'pizza'],
+  ['grape', 'druif'],
+  ['fruit', 'fruit'],
 ]
 var word = ['engels', 'nederlands'];
 function preload() {
@@ -211,12 +215,14 @@ function drawEnemy() {
       word1 = random(words)[1];
       word2 = random(words)[1];
       word3 = random(words)[1];
-      if(word1 == word[level] || word2 == word[level] || word3 == word[level]) {
-        word1 = random(words)[1];
-        word2 = random(words)[1];
-        word3 = random(words)[1];
-      } else {
-        i = 100;
+      for(i = 0; i < 1; i--) {
+        if(word1 == word[level] || word2 == word[level] || word3 == word[level]) {
+          word1 = random(words)[1];
+          word2 = random(words)[1];
+          word3 = random(words)[1];
+        } else {
+          i = 100;
+        }
       }
     }
     
