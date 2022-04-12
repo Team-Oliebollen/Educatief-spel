@@ -124,6 +124,7 @@ function preload() {
 function setup() {
   createCanvas(gameWidth, gameHeight);
   randomWords();
+  song = floor(random() * 14);
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
   jump = loadSound('../JS/sound/jump.mp3');
