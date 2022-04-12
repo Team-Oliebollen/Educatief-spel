@@ -107,8 +107,8 @@ function preload() {
 function setup() {
   createCanvas(gameWidth, gameHeight);
   randomWords();
-  music = loadSound('../JS/sound/m-' + song + '.mp3');
   song = floor(random() * 15);
+  music = loadSound('../JS/sound/m-' + song + '.mp3');
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
 }
@@ -125,6 +125,14 @@ function draw() {
   }
   drawText();
   drawCharacter();
+  playMusic();
+}
+
+function playMusic() {
+  if(!music.isPlaying() && floor(random(0, 120)) == 89) {
+    song = floor(random() * 15);
+    music.play();
+  }
 }
 
 function drawText() {
