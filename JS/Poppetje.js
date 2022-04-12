@@ -41,6 +41,7 @@ var music;
 var jumpS;
 var caS;
 var waS;
+var jump;
 
 var levelComplete = [
   false,
@@ -111,6 +112,7 @@ function setup() {
   music = loadSound('../JS/sound/m-' + song + '.mp3');
   caS = loadSound('../JS/sound/correctanswer.mp3');
   waS = loadSound('../JS/sound/wronganswer.mp3');
+  jump = loadSound('../JS/sound/jump.mp3');
 }
 
 
@@ -131,6 +133,7 @@ function draw() {
 function playMusic() {
   if(!music.isPlaying() && floor(random(0, 120)) == 89) {
     song = floor(random() * 15);
+    music = loadSound('../JS/sound/m-' + song + '.mp3');
     music.play();
   }
 }
@@ -286,6 +289,7 @@ function moveCharacter() {
     //yCharacter = floorHeight;
   }
   if(keyIsDown(87) && yCharacter >= floorHeight) {
+    jump.play();
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
