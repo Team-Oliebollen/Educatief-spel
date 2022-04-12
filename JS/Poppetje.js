@@ -35,6 +35,13 @@ var gravity = 0.5;
 var ySpeed = 0;
 var jumpForce = 15;
 var topFloor;
+
+var song;
+var music;
+var jumpS;
+var caS;
+var waS;
+
 var levelComplete = [
   false,
   false,
@@ -101,6 +108,10 @@ function preload() {
 function setup() {
   createCanvas(gameWidth, gameHeight);
   randomWords();
+  music = loadSound('../JS/sound/m-' + song + '.mp3');
+  song = floor(random() * 15);
+  caS = loadSound('../JS/sound/correctanswer.mp3');
+  waS = loadSound('../JS/sound/wronganswer.mp3');
 }
 
 
@@ -224,12 +235,14 @@ function checkEnemy() {
        yCharacter > answerY[i] - 75 && 
        yCharacter < answerY[i] + 175) {
       if(i == correctAnswer - 1) {
+        caS.play();
         levelComplete[level] = true;
         i = 100;
       } else if(i != correctAnswer - 1) {
+        waS.play();
         hp--;
-        //xCharacter = 650;
-        //yCharacter = 600;
+        xCharacter = 25;
+        yCharacter = 600;
         if(hp == 0) {
           for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
