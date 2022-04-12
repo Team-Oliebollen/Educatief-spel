@@ -13,6 +13,7 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var playerSprite;
+var cat;
 
 //hier zijn wat basiswaarden voor de obstakels waar je op kunt staan in het spel
 var xObstacles = [
@@ -113,6 +114,7 @@ function preload() {
            loadSound('../JS/sound/m-11.mp3'),
            loadSound('../JS/sound/m-12.mp3'),
            loadSound('../JS/sound/m-13.mp3')]
+  cat = loadImage('../JS/images/cat.gif');
   
 }
 
