@@ -143,6 +143,7 @@ function setup() {
     for(i = 0; i < maxLevel - words.length; i++) {
       words.push(random(words));
     }
+  }
 }
 
 
