@@ -291,17 +291,17 @@ function checkEnemy() {
     if(xCharacter < answerX[i] + 175 && 
        xCharacter > answerX[i] - 75 && 
        yCharacter > answerY[i] - 75 && 
-       yCharacter < answerY[i] + 175) { /
-      if(i == correctAnswer - 1) {
-        caS.play();
-        levelComplete[level] = true;
+       yCharacter < answerY[i] + 175) { //als het karakter een antwoordvakje raakt
+      if(i == correctAnswer - 1) { //en het antwoord is goed
+        caS.play(); //speel geluidje
+        levelComplete[level] = true; //en het level is klaar
         i = 100;
-      } else if(i != correctAnswer - 1) {
-        waS.play();
-        hp--;
+      } else if(i != correctAnswer - 1) { //en het antwoord is fout
+        waS.play(); //speel zoemer
+        hp--; //levens naar beneden
         xCharacter = 25;
         yCharacter = 600;
-        if(hp == 0) {
+        if(hp == 0) { //als de levens op zijn, verwijs de pagina door naar de levelselectie
          /* for(i = 0; i <= level; i++) {
             levelComplete[i] = false;
           }
@@ -315,8 +315,9 @@ function checkEnemy() {
   }
 }
 
-
+//functie waarmee het karakter beweegt
 function moveCharacter() {
+  //hiermee kun je langzamer of sneller lopen
   if(keyIsDown(32)) {
     moveSpeed = sprintSpeed;
   } else if(keyIsDown(16)) {
@@ -325,23 +326,30 @@ function moveCharacter() {
     moveSpeed = walkSpeed;
   }
   
+  //als er een bepaalde toets wordt ingedrukt, laat het karakter dan een bepaalde richting in lopen
   if(keyIsDown(68)) {
     xCharacter = xCharacter + moveSpeed;
   } 
   if(keyIsDown(65)) {
      xCharacter = xCharacter - moveSpeed;
   }
+  
+  //als het karakter hoger is dan het punt waarnaar hij valt, dan treedt er een versnelling naar beneden op
   if(yCharacter < floorHeight) {
     ySpeed = ySpeed + gravity;
   } else if(yCharacter >= floorHeight) {
     ySpeed = 0;
-    //yCharacter = floorHeight;
   }
+  
+  //als het karakter op de vloer staat en er wordt een toets ingedrukt, geef dan een snelheid naar boven
   if(keyIsDown(87) && yCharacter >= floorHeight) {
     jump.play();
     ySpeed = -jumpForce;
   }
   yCharacter = yCharacter + ySpeed;
+  
+  //als het karakter buiten het scherm is, kan het naar het vorige of volgende sublevel, 
+  //of als de vraag nog niet beantwoord is, eindigt hij aan de andere kant van het speelveld
   if(xCharacter <= 0 - playerSize) {
     xCharacter = gameWidth + playerSize;
     if(level > 0 && levelComplete[level] == true) {
@@ -354,11 +362,14 @@ function moveCharacter() {
       randomWords();
     }
   }
+  
+  //het karakter "snapt" naar de vloerhoogte toe als hij dichtbij is, voor uitlijndoeleinden
   if(yCharacter > floorHeight && yCharacter < floorHeight + 5) {
     yCharacter = floorHeight;
   } else  if(yCharacter > floorHeight + 300) {
     yCharacter = floorHeight;
   }
-  //yCharacter = constrain(yCharacter, 0, floorHeight - playerSize);
 }
+
+//we zijn weer aan het einde van de code!
 
