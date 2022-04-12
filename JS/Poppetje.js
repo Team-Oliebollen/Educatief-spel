@@ -11,13 +11,13 @@ var yCharacter = gameHeight - 200;
 var enemy;
 var question;
 var xObstacles = [
-  200, 900
+  150, 850
 ];
 var yObstacles = [
- 300, 300
+ 250, 250
 ];
 var obsWidth = [
-  400, 400
+  500, 500
 ];
 var obsHeight = [
 150, 150
@@ -33,7 +33,7 @@ var playerSprite;
 var backGround;
 var gravity = 0.5;
 var ySpeed = 0;
-var jumpForce = 15;
+var jumpForce = 17.5;
 var topFloor;
 
 var song;
