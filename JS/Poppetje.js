@@ -188,7 +188,7 @@ function randomWords() {
   word3 = random(words)[1];
   for(i = 0; i < 1; i--) {
     //dit if-statement checkt of de woorden niet hetzelfde zijn als elkaar of het goede antwoord
-    if(word1 == word[1] || word2 == word[1] || word3 == word[1] || word1 == word2 || word2 == word3 || word1 == word3) {
+    if(word1 == words[level][1] || word2 == words[level][1] || word3 == words[level][1] || word1 == word2 || word2 == word3 || word1 == word3) {
       word1 = random(words)[1];
       word2 = random(words)[1];
       word3 = random(words)[1];
@@ -212,7 +212,7 @@ function drawEnemy() {
       word2 = random(words)[1];
       word3 = random(words)[1];
       for(i = 0; i < 1; i--) {
-        if(word1 == word[1] || word2 == word[1] || word3 == word[1] || word1 == word2 || word2 == word3 || word1 == word3) {
+        if(word1 == words[level][1] || word2 == words[level][1] || word3 == words[level][1] || word1 == word2 || word2 == word3 || word1 == word3) {
           word1 = random(words)[1];
           word2 = random(words)[1];
           word3 = random(words)[1];
